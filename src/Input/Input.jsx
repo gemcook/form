@@ -3,8 +3,6 @@ import * as React from 'react';
 import {Input} from 'semantic-ui-react';
 import classNames from 'classnames';
 
-import './../styles/index.scss';
-
 type Props = {
   type: string,
   placeholder: string,
