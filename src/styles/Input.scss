@@ -5,26 +5,26 @@
 
   .input {
     input {
-      border: none !important;
+      border: none;
 
       background: {
-        color: $form__white-color !important;
+        color: $form__white-color;
       }
 
       &:focus {
         background: {
-          color: $form__white-color !important;
+          color: $form__white-color;
         }
 
-        box-shadow: 0 0 0 3px rgba($form__main-color, 0.7) !important;
+        box-shadow: 0 0 0 3px rgba($form__main-color, 0.7);
       }
 
       &:active {
         background: {
-          color: $form__white-color !important;
+          color: $form__white-color;
         }
 
-        box-shadow: 0 0 0 3px rgba($form__main-color, 0.7) !important;
+        box-shadow: 0 0 0 3px rgba($form__main-color, 0.7);
       }
     }
 
@@ -33,35 +33,35 @@
     }
 
     &.disabled {
-      opacity: 0.8 !important;
+      opacity: 0.8;
     }
 
     &.dark {
       input {
-        border: none !important;
+        border: none;
         background: {
-          color: $form__dark-color !important;
+          color: $form__dark-color;
         }
 
         &:focus {
           background: {
-            color: $form__white-color !important;
+            color: $form__white-color;
           }
 
-          box-shadow: 0 0 0 3px rgba($form__main-color, 0.7) !important;
+          box-shadow: 0 0 0 3px rgba($form__main-color, 0.7);
         }
 
         &:active {
           background: {
-            color: $form__white-color !important;
+            color: $form__white-color;
           }
 
-          box-shadow: 0 0 0 3px rgba($form__main-color, 0.7) !important;
+          box-shadow: 0 0 0 3px rgba($form__main-color, 0.7);
         }
       }
 
       &.disabled {
-        opacity: 0.4 !important;
+        opacity: 0.4;
       }
 
       :placeholder-shown {
