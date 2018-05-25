@@ -1,0 +1,16 @@
+.form__error {
+  padding: {
+    top: 4px;
+  }
+
+  color: $form__error-color;
+  font-size: 13px;
+}
+
+.form__warning {
+  color: $form__warning-color;
+}
+
+.gc__hidden {
+  display: none !important;
+}
