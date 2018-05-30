@@ -36,7 +36,6 @@ function GcCheckbox(props: Props) {
         fluid={fluid}
         type={type}
         disabled={disabled}
-        loading={false}
         name={input.name}
         checked={input.checked}
         onChange={(e, {checked}) => input.onChange(checked)}
