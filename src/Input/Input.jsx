@@ -41,7 +41,7 @@ function GcInput(props: Props) {
           outline: outline,
           dark: dark,
         })}
-        autocomplete={autocomplete || 'off'}
+        autoComplete={autocomplete || 'off'}
         style={style}
         fluid={fluid}
         type={type}

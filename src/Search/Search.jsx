@@ -41,7 +41,7 @@ function GcSearch(props: Props) {
               ...className,
               outline,
             })}
-            autocomplete={autocomplete || 'off'}
+            autoComplete={autocomplete || 'off'}
             style={style}
             type={type}
             placeholder={placeholder}
