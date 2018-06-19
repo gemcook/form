@@ -15,6 +15,7 @@ type Props = {
   searchWords: Array<string>,
   removeSearchWord: (index: number) => void,
   outline: boolean,
+  autocomplete: string,
 };
 
 function GcSearch(props: Props) {
@@ -28,6 +29,7 @@ function GcSearch(props: Props) {
     searchWords,
     removeSearchWord,
     outline,
+    autocomplete,
   } = props;
 
   return (
@@ -39,6 +41,7 @@ function GcSearch(props: Props) {
               ...className,
               outline,
             })}
+            autocomplete={autocomplete || 'off'}
             style={style}
             type={type}
             placeholder={placeholder}

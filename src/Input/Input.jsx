@@ -15,6 +15,7 @@ type Props = {
   maxLength: number,
   outline: boolean,
   dark: boolean,
+  autocomplete: string,
 };
 
 function GcInput(props: Props) {
@@ -30,6 +31,7 @@ function GcInput(props: Props) {
     maxLength,
     outline,
     dark,
+    autocomplete,
   } = props;
   return (
     <div className="gc__input">
@@ -39,6 +41,7 @@ function GcInput(props: Props) {
           outline: outline,
           dark: dark,
         })}
+        autocomplete={autocomplete || 'off'}
         style={style}
         fluid={fluid}
         type={type}
