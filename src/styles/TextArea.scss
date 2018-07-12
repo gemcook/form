@@ -1,0 +1,145 @@
+.gc__textarea {
+  padding: {
+    bottom: 7px;
+  }
+
+  textarea {
+    padding: 10px 16px;
+    border: none;
+    border-radius: 4px;
+    color: rgba(0, 0, 0, 0.87);
+    font-family: Lato, 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    font-size: 100%;
+    outline-style: none;
+
+    &.fluid {
+      width: 100%;
+    }
+
+    &.outline {
+      box-shadow: 0 0 30px #e9ecef;
+    }
+
+    &.diabled {
+      opacity: 0.8;
+
+      &:focus {
+        box-shadow: none;
+      }
+
+      &:active {
+        box-shadow: none;
+      }
+    }
+
+    &:focus {
+      background: {
+        color: $form_white-color;
+      }
+
+      box-shadow: 0 0 0 3px rgba($form_main-color, 0.7);
+    }
+
+    &:active {
+      background: {
+        color: $form_white-color;
+      }
+
+      box-shadow: 0 0 0 3px rgba($form_main-color, 0.7);
+    }
+  }
+
+  &.dark {
+    textarea {
+      background: {
+        color: $form__dark-color;
+      }
+
+      &.diabled {
+        opacity: 0.4;
+
+        &:focus {
+          background: {
+            color: $form__dark-color;
+          }
+        }
+
+        &:active {
+          background: {
+            color: $form__dark-color;
+          }
+        }
+      }
+
+      &:focus {
+        background: {
+          color: $form_white-color;
+        }
+      }
+
+      &:active {
+        background: {
+          color: $form_white-color;
+        }
+      }
+    }
+
+    textarea::placeholder {
+      color: $form__dark_placeholder-color;
+      font-weight: bold;
+    }
+
+    textarea:-moz-placeholder {
+      color: $form__dark_placeholder-color;
+      font-weight: bold;
+      opacity: 1;
+    }
+
+    textarea::-moz-placeholder {
+      color: $form__dark_placeholder-color;
+      font-weight: bold;
+      opacity: 1;
+    }
+
+    textarea:placeholder-shown {
+      color: $form__dark_placeholder-color;
+      font-weight: bold;
+    }
+
+    ::-webkit-input-placeholder {
+      color: $form__dark_placeholder-color;
+      font-weight: bold;
+    }
+
+    :-ms-input-placeholder {
+      color: $form__dark_placeholder-color;
+      font-weight: bold;
+    }
+  }
+
+  &.normal {
+    textarea::placeholder {
+      opacity: 0.6;
+    }
+
+    textarea:-moz-placeholder {
+      opacity: 0.6;
+    }
+
+    textarea::-moz-placeholder {
+      opacity: 0.6;
+    }
+
+    textarea:placeholder-shown {
+      opacity: 0.6;
+    }
+
+    ::-webkit-input-placeholder {
+      opacity: 0.6;
+    }
+
+    :-ms-input-placeholder {
+      opacity: 0.6;
+    }
+  }
+}
