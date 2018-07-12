@@ -1,54 +1,55 @@
 /* @flow */
 import * as React from 'react';
-import { Input } from 'semantic-ui-react';
+import {TextArea} from 'semantic-ui-react';
 import classNames from 'classnames';
 
 type Props = {
-  type: string,
-  placeholder: string,
-  input: Object,
-  fluid: boolean,
-  style: Object,
   className: Object,
-  meta: Object,
-  disabled: boolean,
-  maxLength: number,
+  fluid: boolean,
   outline: boolean,
   dark: boolean,
-  autocomplete: string,
+  autoHeight: boolean,
+  disabled: boolean,
+  style: Object,
+  placeholder: string,
+  rows: number,
+  input: Object,
+  meta: Object,
 };
 
-function GcInput(props: Props) {
+function GcTextArea(props: Props) {
   const {
-    input,
-    type,
-    placeholder,
-    fluid,
-    style,
     className,
-    meta,
-    disabled,
-    maxLength,
+    fluid,
     outline,
     dark,
-    autocomplete,
+    disabled,
+    autoHeight,
+    style,
+    placeholder,
+    rows,
+    input,
+    meta,
   } = props;
   return (
-    <div className="gc__input">
-      <Input
+    <div
+      className={classNames({
+        gc__textarea: true,
+        normal: !dark,
+        dark: dark,
+      })}>
+      <TextArea
         className={classNames({
           ...className,
+          fluid: fluid,
           outline: outline,
-          dark: dark,
+          diabled: disabled,
         })}
-        autoComplete={autocomplete || 'off'}
+        autoHeight={autoHeight}
         style={style}
-        fluid={fluid}
-        type={type}
         placeholder={placeholder}
-        maxLength={maxLength || 30}
+        rows={rows}
         disabled={disabled}
-        loading={false}
         name={input.name}
         value={input.value}
         onChange={input.onChange}
@@ -64,4 +65,4 @@ function GcInput(props: Props) {
   );
 }
 
-export default GcInput;
+export default GcTextArea;
