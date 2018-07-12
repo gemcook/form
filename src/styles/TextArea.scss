@@ -34,18 +34,18 @@
 
     &:focus {
       background: {
-        color: $form_white-color;
+        color: $form__white-color;
       }
 
-      box-shadow: 0 0 0 3px rgba($form_main-color, 0.7);
+      box-shadow: 0 0 0 3px rgba($form__main-color, 0.7);
     }
 
     &:active {
       background: {
-        color: $form_white-color;
+        color: $form__white-color;
       }
 
-      box-shadow: 0 0 0 3px rgba($form_main-color, 0.7);
+      box-shadow: 0 0 0 3px rgba($form__main-color, 0.7);
     }
   }
 
@@ -73,13 +73,13 @@
 
       &:focus {
         background: {
-          color: $form_white-color;
+          color: $form__white-color;
         }
       }
 
       &:active {
         background: {
-          color: $form_white-color;
+          color: $form__white-color;
         }
       }
     }
