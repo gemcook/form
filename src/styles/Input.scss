@@ -1,0 +1,98 @@
+.gc__input {
+  padding: {
+    bottom: 7px;
+  }
+
+  .input {
+    input {
+      border: none;
+
+      background: {
+        color: $form__white-color;
+      }
+
+      height: 40px;
+
+      &:focus {
+        background: {
+          color: $form__white-color;
+        }
+
+        box-shadow: 0 0 0 3px rgba($form__main-color, 0.7);
+      }
+
+      &:active {
+        background: {
+          color: $form__white-color;
+        }
+
+        box-shadow: 0 0 0 3px rgba($form__main-color, 0.7);
+      }
+    }
+
+    &.outline {
+      box-shadow: 0 0 30px #e9ecef;
+    }
+
+    &.disabled {
+      opacity: 0.8;
+    }
+
+    &.dark {
+      input {
+        border: none;
+        background: {
+          color: $form__dark-color;
+        }
+
+        &:focus {
+          background: {
+            color: $form__white-color;
+          }
+
+          box-shadow: 0 0 0 3px rgba($form__main-color, 0.7);
+        }
+
+        &:active {
+          background: {
+            color: $form__white-color;
+          }
+
+          box-shadow: 0 0 0 3px rgba($form__main-color, 0.7);
+        }
+      }
+
+      &.disabled {
+        opacity: 0.4;
+      }
+
+      :placeholder-shown {
+        color: $form__dark_placeholder-color;
+        font-weight: bold;
+      }
+
+      ::-webkit-input-placeholder {
+        color: $form__dark_placeholder-color;
+        font-weight: bold;
+      }
+
+      :-moz-placeholder {
+        color: $form__dark_placeholder-color;
+        font-weight: bold;
+        opacity: 1;
+      }
+
+      ::-moz-placeholder {
+        color: $form__dark_placeholder-color;
+        font-weight: bold;
+        opacity: 1;
+      }
+
+      :-ms-input-placeholder {
+        color: $form__dark_placeholder-color;
+      }
+
+      font-weight: bold;
+    }
+  }
+}
