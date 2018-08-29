@@ -1,55 +1,29 @@
 /* @flow */
 import * as React from 'react';
 import {Checkbox} from 'semantic-ui-react';
-import classNames from 'classnames';
 
 type Props = {
-  type: string,
   input: Object,
-  fluid: boolean,
-  style: Object,
-  className: Object,
   meta: Object,
-  disabled: boolean,
-  labelElement: () => void,
 };
 
-function GcCheckbox(props: Props) {
-  const {
-    type,
-    fluid,
-    style,
-    className,
-    meta,
-    disabled,
-    input,
-    labelElement,
-  } = props;
+export default function GcCheckbox(props: Props) {
+  const {meta, input, ...rest} = props;
 
   return (
     <div className="gc__checkbox">
       <Checkbox
-        className={classNames({
-          ...className,
-        })}
-        style={style}
-        fluid={fluid}
-        type={type}
-        disabled={disabled}
         name={input.name}
         checked={input.checked}
         onChange={(e, {checked}) => input.onChange(checked)}
-        label={labelElement()}
         onBlur={input.onBlur}
         onFocus={input.onFocus}
+        {...rest}
       />
       {meta.touched &&
-        ((meta.error && <div className="form__error">{meta.error}</div>) ||
-          (meta.warning && (
-            <div className="form__warning">{meta.warning}</div>
-          )))}
+        meta.error && <span className="error">{meta.error}</span>}
+      {meta.touched &&
+        meta.warning && <span className="warning">{meta.warning}</span>}
     </div>
   );
 }
-
-export default GcCheckbox;
