@@ -18,7 +18,7 @@ type Props = {
   autocomplete: string,
 };
 
-function GcSearch(props: Props) {
+export default function GcSearch(props: Props): React.Element<'div'> {
   const {
     input,
     type,
@@ -70,7 +70,8 @@ function GcSearch(props: Props) {
         className={classNames({
           b__result: true,
           gc__hidden: searchWords.length === 0,
-        })}>
+        })}
+      >
         <div className="title">検索対象</div>
         <div className="result">
           {searchWords.map((word, i) => {
@@ -79,7 +80,8 @@ function GcSearch(props: Props) {
                 key={`${word}-${i}`}
                 onClick={() => {
                   removeSearchWord(i);
-                }}>
+                }}
+              >
                 {word}
                 <Icon name="close" />
               </Label>
@@ -90,5 +92,3 @@ function GcSearch(props: Props) {
     </div>
   );
 }
-
-export default GcSearch;

@@ -18,7 +18,7 @@ type Props = {
   autocomplete: string,
 };
 
-function GcInput(props: Props) {
+export default function GcInput(props: Props): React.Element<'div'> {
   const {
     input,
     type,
@@ -33,6 +33,7 @@ function GcInput(props: Props) {
     dark,
     autocomplete,
   } = props;
+
   return (
     <div className="gc__input">
       <Input
@@ -63,5 +64,3 @@ function GcInput(props: Props) {
     </div>
   );
 }
-
-export default GcInput;

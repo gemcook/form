@@ -7,7 +7,7 @@ type Props = {
   meta: Object,
 };
 
-export default function GcCheckbox(props: Props) {
+export default function GcCheckbox(props: Props): React.Element<'div'> {
   const {meta, input, ...rest} = props;
 
   return (

@@ -17,7 +17,7 @@ type Props = {
   meta: Object,
 };
 
-function GcTextArea(props: Props) {
+export default function GcTextArea(props: Props): React.Element<'div'> {
   const {
     className,
     fluid,
@@ -31,13 +31,15 @@ function GcTextArea(props: Props) {
     input,
     meta,
   } = props;
+
   return (
     <div
       className={classNames({
         gc__textarea: true,
         normal: !dark,
         dark: dark,
-      })}>
+      })}
+    >
       <TextArea
         className={classNames({
           ...className,
@@ -64,5 +66,3 @@ function GcTextArea(props: Props) {
     </div>
   );
 }
-
-export default GcTextArea;
