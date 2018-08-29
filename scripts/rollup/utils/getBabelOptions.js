@@ -4,15 +4,14 @@ module.exports = function getBabelOptions() {
     {
       exclude: 'node_modules/**',
       babelrc: false,
+      runtimeHelpers: true,
       presets: [
         '@babel/flow',
         '@babel/react',
-        ['@babel/preset-stage-2', {loose: true, decoratorsLegacy: true}],
         [
           '@babel/preset-env',
           {
-            targets: {browsers: ['> 1% in JP']},
-            modules: false,
+            targets: {browsers: ['> 1% in JP'], esmodules: false},
           },
         ],
       ],
@@ -20,19 +19,20 @@ module.exports = function getBabelOptions() {
         [
           '@babel/plugin-transform-runtime',
           {
+            corejs: 2,
             helpers: true,
-            polyfill: false,
-            regenerator: false,
-            moduleName: '@babel/runtime',
+            regenerator: true,
+            useESModules: false,
           },
         ],
-        ['@babel/plugin-proposal-class-properties', {loose: true}],
         '@babel/plugin-proposal-export-default-from',
-        '@babel/plugin-syntax-class-properties',
-        '@babel/plugin-syntax-export-default-from',
-        '@babel/plugin-syntax-optional-chaining',
+        ['@babel/plugin-proposal-decorators', {legacy: true}],
+        '@babel/plugin-proposal-export-namespace-from',
+        '@babel/plugin-syntax-dynamic-import',
+        '@babel/plugin-syntax-import-meta',
+        ['@babel/plugin-proposal-class-properties', {loose: true}],
+        '@babel/plugin-proposal-json-strings',
       ],
-      runtimeHelpers: true,
-    },
+    }
   );
 };

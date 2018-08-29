@@ -38,17 +38,6 @@ async function build() {
         }),
         commonjs({
           include: 'node_modules/**',
-          namedExports: {
-            'node_modules/react/index.js': [
-              'Component',
-              'PureComponent',
-              'Fragment',
-              'Children',
-              'createElement',
-              'createFactory',
-            ],
-            'node_modules/react-dom/index.js': ['render'],
-          },
         }),
         babel(getBabelOptions()),
         replace({
@@ -59,20 +48,22 @@ async function build() {
         closure(getClosureOptions()),
         // TODO: COPYRIGHT
         // stripBanner(),
-        isProduction && prettier(),
+        isProduction &&
+          prettier({
+            parser: 'babylon',
+          }),
       ],
     });
 
     bundle.write({
-      format: 'cjs',
-      file: resolvePath('lib/cjs/index.cjs.js'),
-      name: 'Form',
-      exports: 'named',
+      format: 'umd',
+      file: resolvePath('lib/index.js'),
+      name: '@gemcook/form',
       globals: {
+        '@babel/runtime-corejs2/helpers/objectSpread': '_objectSpread',
         react: 'React',
-        'react-dom': 'ReactDOM',
-        'prop-types': 'PropTypes',
-        '@gemcook/form': 'Form',
+        'semantic-ui-react': 'semanticUiReact',
+        classnames: 'classNames',
       },
     });
   } catch (error) {

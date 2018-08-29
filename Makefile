@@ -4,29 +4,16 @@ start:
 clean:
 	rm -rf ./lib/
 
-build-cjs:
+build-umd:
 	NODE_PATH=$(shell which node) \
 	NODE_ENV=production \
 	BABEL_ENV=production \
-	yarn run build:cjs
-
-build-es:
-	NODE_PATH=$(shell which node) \
-	NODE_ENV=production \
-	BABEL_ENV=production \
-	yarn run build:es
+	yarn run build:umd
 
 prepublish:
 	$(MAKE) clean
-
-	$(MAKE) build-cjs
-
-	$(MAKE) build-es
-
-	cp ./flow-typed/index.cjs.js.flow ./lib/cjs/index.cjs.js.flow
-
-	cp ./flow-typed/index.es.js.flow ./lib/es/index.es.js.flow
-
+	$(MAKE) build-umd
+	cp ./flow-typed/index.js.flow ./lib/index.js.flow
 	cp -r ./src/styles/ ./lib/styles/
 
 build:
