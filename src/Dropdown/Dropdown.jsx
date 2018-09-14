@@ -1,11 +1,12 @@
 /* @flow */
 import * as React from 'react';
 import {Select} from 'semantic-ui-react';
-import type {Props} from './type';
+
+type Props = Object;
 
 export default function GcDropdown(props: Props): React.Element<'div'> {
   return (
-    <>
+    <div className="gc__dropdown">
       <Select
         value={props.input.value}
         onChange={(event, values) => {
@@ -25,6 +26,6 @@ export default function GcDropdown(props: Props): React.Element<'div'> {
         props.meta.error && (
           <span className="syncValidateError">{props.meta.error}</span>
         )}
-    </>
+    </div>
   );
 }

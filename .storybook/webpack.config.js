@@ -21,6 +21,7 @@ module.exports = (baseConfig, env, defaultConfig) => {
       {
         loader: require.resolve('babel-loader'),
         options: {
+          babelrc: false,
           cacheDirectory: true,
           highlightCode: true,
           presets: ['babel-preset-stage-flow']

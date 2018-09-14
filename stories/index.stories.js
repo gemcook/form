@@ -6,7 +6,7 @@ import {Welcome} from '@storybook/react/demo';
 import {createStore, combineReducers} from 'redux';
 import {Provider} from 'react-redux';
 import {reduxForm, Field, reducer as formReducer} from 'redux-form';
-import {Dropdown} from '.././src/';
+import {Dropdown} from '.././src';
 
 const reducer = combineReducers({form: formReducer});
 const store = createStore(reducer);
@@ -26,7 +26,7 @@ const DropdownForm = () => (
   <form>
     <Field
       name="firstName"
-      component="input"
+      component={Dropdown}
       type="text"
       placeholder="First Name"
     />
