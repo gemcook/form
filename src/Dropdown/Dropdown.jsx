@@ -1,10 +1,10 @@
 /* @flow */
 import * as React from 'react';
 import {Select} from 'semantic-ui-react';
+import enhance from './enhance';
+import type {Props} from './type';
 
-type Props = Object;
-
-export default function GcDropdown(props: Props): React.Element<'div'> {
+function Dropdown(props: Props) {
   return (
     <div className="gc__dropdown">
       <Select
@@ -23,9 +23,14 @@ export default function GcDropdown(props: Props): React.Element<'div'> {
         search={props.search}
       />
       {props.meta.touched &&
-        props.meta.error && (
-          <span className="syncValidateError">{props.meta.error}</span>
-        )}
+        ((props.meta.error && (
+          <div className="form__error">{props.meta.error}</div>
+        )) ||
+          (props.meta.warning && (
+            <div className="form__warning">{props.meta.warning}</div>
+          )))}
     </div>
   );
 }
+
+export default enhance(props => <Dropdown {...props} />);

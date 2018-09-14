@@ -1,0 +1,19 @@
+/* @flow */
+export type Props = {
+  input: any,
+  meta: {
+    touched: boolean,
+    error: boolean,
+  },
+  disabled: boolean,
+  style: {},
+  className: string,
+  type: string,
+  fluid: boolean,
+  options: Array<*>,
+  placeholder: string,
+  defaultValue: any,
+  selection: boolean,
+  search: boolean,
+  changeToggle: (event: Event, values: {}) => void,
+};

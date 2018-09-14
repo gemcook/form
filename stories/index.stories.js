@@ -7,6 +7,7 @@ import {createStore, combineReducers} from 'redux';
 import {Provider} from 'react-redux';
 import {reduxForm, Field, reducer as formReducer} from 'redux-form';
 import {Dropdown} from '.././src';
+import prefecture from './prefecture';
 
 const reducer = combineReducers({form: formReducer});
 const store = createStore(reducer);
@@ -25,10 +26,13 @@ const SampleForm = () => (
 const DropdownForm = () => (
   <form>
     <Field
-      name="firstName"
+      search
+      fluid
+      className="prefecture"
+      name="prefecture"
       component={Dropdown}
-      type="text"
-      placeholder="First Name"
+      placeholder="都道府県"
+      options={prefecture}
     />
   </form>
 );
@@ -46,7 +50,7 @@ storiesOf('Sample', module)
       <TestForm />
     </Provider>
   ))
-  .add('eeeample', () => (
+  .add('Dropdown', () => (
     <Provider store={store}>
       <Test2Form />
     </Provider>
