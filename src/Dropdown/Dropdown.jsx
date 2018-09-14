@@ -33,4 +33,4 @@ function GcDropdown(props: Props) {
   );
 }
 
-export default enhance(props => <Dropdown {...props} />);
+export default enhance(props => <GcDropdown {...props} />);
