@@ -2,9 +2,8 @@
 import * as React from 'react';
 import {Select} from 'semantic-ui-react';
 import enhance from './enhance';
-import type {Props} from './type';
 
-function GcDropdown(props: Props) {
+function GcDropdown(props: Object): React.Element<'div'> {
   return (
     <div className="gc__dropdown">
       <Select
