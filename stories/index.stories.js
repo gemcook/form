@@ -48,8 +48,6 @@ storiesOf('Sample', module)
   ))
   .add('eeeample', () => (
     <Provider store={store}>
-      <Provider store={store}>
-        <Test2Form />
-      </Provider>
+      <Test2Form />
     </Provider>
   ));
