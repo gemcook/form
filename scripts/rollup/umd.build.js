@@ -19,56 +19,51 @@ const {
 const isProduction = process.env.NODE_ENV === 'production';
 
 async function build() {
-  try {
-    const bundle = await rollup({
-      input: resolvePath('src/index.js'),
-      external: isExternal,
-      plugins: [
-        resolve({
-          extensions: ['.js', '.json', '.jsx'],
-          preferBuiltins: false,
-          customResolveOptions: {
-            moduleDirectory: resolvePath('node_modules'),
-          },
+  const bundle = await rollup({
+    input: resolvePath('src/index.js'),
+    external: isExternal,
+    plugins: [
+      resolve({
+        extensions: ['.js', '.json', '.jsx'],
+        preferBuiltins: false,
+        customResolveOptions: {
+          moduleDirectory: resolvePath('node_modules'),
+        },
+      }),
+      json(),
+      url(),
+      postcss({
+        extensions: ['.css'],
+      }),
+      commonjs({
+        include: 'node_modules/**',
+      }),
+      babel(getBabelOptions()),
+      replace({
+        'process.env.NODE_ENV': isProduction ? "'production'" : "'development'",
+      }),
+      closure(getClosureOptions()),
+      // TODO: COPYRIGHT
+      // stripBanner(),
+      isProduction &&
+        prettier({
+          parser: 'babylon',
         }),
-        json(),
-        url(),
-        postcss({
-          extensions: ['.css'],
-        }),
-        commonjs({
-          include: 'node_modules/**',
-        }),
-        babel(getBabelOptions()),
-        replace({
-          'process.env.NODE_ENV': isProduction
-            ? "'production'"
-            : "'development'",
-        }),
-        closure(getClosureOptions()),
-        // TODO: COPYRIGHT
-        // stripBanner(),
-        isProduction &&
-          prettier({
-            parser: 'babylon',
-          }),
-      ],
-    });
+    ],
+  });
 
-    bundle.write({
-      format: 'umd',
-      file: resolvePath('lib/index.js'),
-      name: '@gemcook/form',
-      globals: {
-        '@babel/runtime-corejs2/helpers/objectSpread': '_objectSpread',
-        react: 'React',
-        'semantic-ui-react': 'semanticUiReact',
-        classnames: 'classNames',
-      },
-    });
-  } catch (error) {
-    console.error(error);
-  }
+  bundle.write({
+    format: 'umd',
+    file: resolvePath('lib/index.js'),
+    name: '@gemcook/form',
+    globals: {
+      recompose: 'recompose',
+      react: 'React',
+      classnames: 'classNames',
+      'react-modal': 'ReactModal',
+      'semantic-ui-react': 'semanticUiReact',
+    },
+  });
 }
 
 build();
