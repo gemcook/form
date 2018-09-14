@@ -4,7 +4,7 @@ import {Select} from 'semantic-ui-react';
 import enhance from './enhance';
 import type {Props} from './type';
 
-function Dropdown(props: Props) {
+function GcDropdown(props: Props) {
   return (
     <div className="gc__dropdown">
       <Select
