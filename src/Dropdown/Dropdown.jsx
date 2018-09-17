@@ -1,32 +1,39 @@
 /* @flow */
 import * as React from 'react';
+import classNames from 'classnames';
 import {Select} from 'semantic-ui-react';
 import enhance from './enhance';
 
 function GcDropdown(props: Object): React.Element<'div'> {
+  const {
+    changeToggle,
+    disabled,
+    input,
+    meta,
+    className,
+    outline,
+    dark,
+    ...rest
+  } = props;
   return (
     <div className="gc__dropdown">
       <Select
-        value={props.input.value}
+        className={classNames({
+          ...className,
+          outline: outline,
+          dark: dark,
+        })}
+        value={input.value}
         onChange={(event, values) => {
-          props.changeToggle(event, values);
+          changeToggle(event, values);
         }}
-        readOnly={props.disabled}
-        style={props.style}
-        className={props.className}
-        fluid={props.fluid}
-        type={props.type}
-        options={props.options}
-        placeholder={props.placeholder}
-        selection={props.selection}
-        search={props.search}
+        readOnly={disabled}
+        {...rest}
       />
-      {props.meta.touched &&
-        ((props.meta.error && (
-          <div className="form__error">{props.meta.error}</div>
-        )) ||
-          (props.meta.warning && (
-            <div className="form__warning">{props.meta.warning}</div>
+      {meta.touched &&
+        ((meta.error && <div className="form__error">{meta.error}</div>) ||
+          (meta.warning && (
+            <div className="form__warning">{meta.warning}</div>
           )))}
     </div>
   );

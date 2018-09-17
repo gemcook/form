@@ -6,7 +6,7 @@ import {Welcome} from '@storybook/react/demo';
 import {createStore, combineReducers} from 'redux';
 import {Provider} from 'react-redux';
 import {reduxForm, Field, reducer as formReducer} from 'redux-form';
-import {Dropdown} from '.././src';
+import {Dropdown, Radio} from '.././src';
 import prefecture from './prefecture';
 
 const reducer = combineReducers({form: formReducer});
@@ -19,6 +19,26 @@ const SampleForm = () => (
       component="input"
       type="text"
       placeholder="First Name"
+    />
+  </form>
+);
+
+const RadioForm = () => (
+  // radioGroupValueはライブラリでコントロールしない。
+  <form>
+    <Field
+      name="gender"
+      radioValue="man"
+      label="男"
+      radioGroupValue="female"
+      component={Radio}
+    />
+    <Field
+      name="gender"
+      radioValue="female"
+      label="女"
+      radioGroupValue="female"
+      component={Radio}
     />
   </form>
 );
@@ -39,6 +59,7 @@ const DropdownForm = () => (
 
 const TestForm = reduxForm({form: 'TestForm'})(SampleForm);
 const Test2Form = reduxForm({form: 'Tesr2Form'})(DropdownForm);
+const Test3Form = reduxForm({form: 'Tesr3Form'})(RadioForm);
 
 storiesOf('Welcome', module).add('to Gemcook Component', () => (
   <Welcome showApp={linkTo('Button')} />
@@ -53,5 +74,10 @@ storiesOf('Sample', module)
   .add('Dropdown', () => (
     <Provider store={store}>
       <Test2Form />
+    </Provider>
+  ))
+  .add('Radio', () => (
+    <Provider store={store}>
+      <Test3Form />
     </Provider>
   ));

@@ -5,3 +5,4 @@ export {Checkbox} from './Checkbox';
 export {validates} from './validates';
 export {TextArea} from './TextArea';
 export {Dropdown} from './Dropdown';
+export {Radio} from './Radio';
