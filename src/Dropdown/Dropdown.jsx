@@ -4,7 +4,9 @@ import classNames from 'classnames';
 import {Select} from 'semantic-ui-react';
 import enhance from './enhance';
 
-function GcDropdown(props: Object): React.Element<'div'> {
+type Props = Object;
+
+function GcDropdown(props: Props): React.Element<'div'> {
   const {
     changeToggle,
     disabled,

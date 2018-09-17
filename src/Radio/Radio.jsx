@@ -5,7 +5,9 @@ import {Radio} from 'semantic-ui-react';
 import enhance from './enhancer';
 import * as R from 'ramda';
 
-function GcRadio(props: Object): React.Element<'div'> {
+type Props = Object;
+
+function GcRadio(props: Props): React.Element<'div'> {
   const {
     className,
     meta,

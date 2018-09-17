@@ -13,7 +13,7 @@ build-umd:
 prepublish:
 	$(MAKE) clean
 	$(MAKE) build-umd
-	cp ./flow-typed/index.js.flow ./lib/index.js.flow
+	cp ./flow-typed/index.flow.js ./lib/index.flow.js
 	cp -r ./src/styles/ ./lib/styles/
 
 build:
