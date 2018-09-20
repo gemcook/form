@@ -21,3 +21,6 @@ build:
 
 publish:
 	yarn publish --access public
+
+flow-gen:
+	yarn run flow gen-flow-files ./src/index.js --out-dir ./lib/
