@@ -8,6 +8,9 @@ module.exports = (cssOptions, preProcessor) => {
       options: cssOptions,
     },
     {
+      // Options for PostCSS as we reference these options twice
+      // Adds vendor prefixing based on your specified browser support in
+      // package.json
       loader: require.resolve('postcss-loader'),
       options: {
         // Necessary for external CSS imports to work
@@ -17,16 +20,13 @@ module.exports = (cssOptions, preProcessor) => {
           require('postcss-flexbugs-fixes'),
           autoprefixer({
             flexbox: 'no-2009',
-            grid: true,
           }),
         ],
       },
     },
   ];
-
   if (preProcessor) {
     loaders.push(require.resolve(preProcessor));
   }
-
   return loaders;
 };

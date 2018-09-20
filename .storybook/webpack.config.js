@@ -13,27 +13,41 @@ module.exports = (baseConfig, env, defaultConfig) => {
   // 'PRODUCTION' is used when building the static version of storybook.
 
   // Make whatever fine-grained changes you need
-  defaultConfig.module.rules.push({
-    test: /\.(js|jsx|mjs)$/,
-    include: resolveApp('src'),
-    exclude: [/[/\\\\]node_modules[/\\\\]/],
-    use: [
-      {
-        loader: require.resolve('babel-loader'),
-        options: {
-          babelrc: false,
-          cacheDirectory: true,
-          highlightCode: true,
-          presets: ['babel-preset-stage-flow']
-        },
-      },
-    ],
-  });
+  const cssRegex = /\.css$/;
+  const cssModuleRegex = /\.module\.css$/;
+  const sassRegex = /\.(scss|sass)$/;
+  const sassModuleRegex = /\.module\.(scss|sass)$/;
 
-  defaultConfig.module.rules.push({
-    test: /\.scss$/,
-    use: getStyleLoaders({importLoaders: 2}, 'sass-loader'),
-  });
+  defaultConfig.module.rules.push(
+    {
+      test: /\.(js|jsx|mjs)$/,
+      include: resolveApp('src'),
+      exclude: [/[/\\\\]node_modules[/\\\\]/],
+      use: [
+        {
+          loader: require.resolve('babel-loader'),
+          options: {
+            babelrc: false,
+            cacheDirectory: true,
+            highlightCode: true,
+            presets: ['babel-preset-stage-flow'],
+          },
+        },
+      ],
+    },
+    {
+      test: cssRegex,
+      exclude: cssModuleRegex,
+      use: getStyleLoaders({
+        importLoaders: 1,
+      }),
+    },
+    {
+      test: sassRegex,
+      exclude: sassModuleRegex,
+      use: getStyleLoaders({importLoaders: 2}, 'sass-loader'),
+    },
+  );
 
   // Return the altered config
   return defaultConfig;

@@ -1,33 +1,7 @@
-.gc__input {
-  padding: {
-    bottom: 7px;
-  }
-
-  .input {
-    input {
-      height: 40px;
-      border: none;
-
-      background: {
-        color: $form__white-color;
-      }
-
-      &:focus {
-        background: {
-          color: $form__white-color;
-        }
-
-        box-shadow: 0 0 0 3px rgba($form__main-color, 0.7);
-      }
-
-      &:active {
-        background: {
-          color: $form__white-color;
-        }
-
-        box-shadow: 0 0 0 3px rgba($form__main-color, 0.7);
-      }
-    }
+.gc__dropdown {
+  .ui.dropdown {
+    height: 40px;
+    padding: 0 !important;
 
     &.outline {
       box-shadow: 0 0 30px #e9ecef;
@@ -92,6 +66,41 @@
       }
 
       font-weight: bold;
+    }
+
+    input.search {
+      height: 100%;
+      padding: 0 !important;
+      border: none;
+
+      background: {
+        color: $form__white-color;
+      }
+
+      &:focus {
+        background: {
+          color: $form__white-color;
+        }
+
+        box-shadow: 0 0 0 3px rgba($form__main-color, 0.7);
+      }
+
+      &:active {
+        background: {
+          color: $form__white-color;
+        }
+
+        box-shadow: 0 0 0 3px rgba($form__main-color, 0.7);
+      }
+    }
+
+    div.text {
+      display: inline-flex;
+      height: 100%;
+      align-items: center;
+      padding: {
+        left: 1rem;
+      }
     }
   }
 }

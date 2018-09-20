@@ -1,19 +1,9 @@
 /* @flow */
-import {compose, setDisplayName, withStateHandlers, type HOC} from 'recompose';
+import {compose, setDisplayName, type HOC} from 'recompose';
+import {ExternalProps, InternalProps} from './type.flow';
 
-const enhance: HOC<*, *> = compose(
+const enhance: HOC<InternalProps, ExternalProps> = compose(
   setDisplayName('GcRadio'),
-  withStateHandlers(
-    props => {
-      const {radioValue} = props;
-      return {internalValue: radioValue};
-    },
-    {
-      handleChange: (state, props) => (e, {value}) => {
-        return {internalValue: value};
-      },
-    },
-  ),
 );
 
 export default enhance;

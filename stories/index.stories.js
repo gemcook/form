@@ -5,9 +5,11 @@ import {linkTo} from '@storybook/addon-links';
 import {Welcome} from '@storybook/react/demo';
 import {createStore, combineReducers} from 'redux';
 import {Provider} from 'react-redux';
-import {reduxForm, Field, reducer as formReducer} from 'redux-form';
+import {reduxForm, Field, reducer as formReducer} from 'redux-form/immutable';
 import {Dropdown, Radio} from '.././src';
 import prefecture from './prefecture';
+import radioEnhancer from './radioEnhancer';
+import '../src/styles/index.scss';
 
 const reducer = combineReducers({form: formReducer});
 const store = createStore(reducer);
@@ -23,31 +25,39 @@ const SampleForm = () => (
   </form>
 );
 
-const RadioForm = () => (
-  // radioGroupValueはライブラリでコントロールしない。
-  <form>
-    <Field
-      name="gender"
-      radioValue="man"
-      label="男"
-      radioGroupValue="female"
-      component={Radio}
-    />
-    <Field
-      name="gender"
-      radioValue="female"
-      label="女"
-      radioGroupValue="female"
-      component={Radio}
-    />
-  </form>
-);
+const RadioForm = props => {
+  return (
+    // radioGroupValueはライブラリでコントロールしない。
+    <form>
+      <Field
+        type="radio"
+        name="gender"
+        value="man"
+        label="男"
+        component={Radio}
+        selectedForm={props.form}
+        formName="Test3Form"
+      />
+      <Field
+        type="radio"
+        name="gender"
+        value="female"
+        label="女"
+        component={Radio}
+        selectedForm={props.form}
+        formName="Test3Form"
+      />
+    </form>
+  );
+};
+const GcRadioForm = radioEnhancer(props => <RadioForm {...props} />);
 
 const DropdownForm = () => (
   <form>
     <Field
       search
       fluid
+      dark
       className="prefecture"
       name="prefecture"
       component={Dropdown}
@@ -59,7 +69,6 @@ const DropdownForm = () => (
 
 const TestForm = reduxForm({form: 'TestForm'})(SampleForm);
 const Test2Form = reduxForm({form: 'Tesr2Form'})(DropdownForm);
-const Test3Form = reduxForm({form: 'Tesr3Form'})(RadioForm);
 
 storiesOf('Welcome', module).add('to Gemcook Component', () => (
   <Welcome showApp={linkTo('Button')} />
@@ -78,6 +87,6 @@ storiesOf('Sample', module)
   ))
   .add('Radio', () => (
     <Provider store={store}>
-      <Test3Form />
+      <GcRadioForm />
     </Provider>
   ));

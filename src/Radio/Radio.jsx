@@ -4,25 +4,28 @@ import classNames from 'classnames';
 import {Radio} from 'semantic-ui-react';
 import enhance from './enhancer';
 import * as R from 'ramda';
-
-type Props = Object;
+import type {Props} from './type.flow';
 
 function GcRadio(props: Props): React.Element<'div'> {
   const {
     className,
     meta,
+    input,
     outline,
     dark,
-    radioGroupValue,
-    value,
-    handleChange,
+    selectedForm,
+    formName,
     label,
-    internalValue,
     name,
     ...rest
   } = props;
 
   const ignoredRest = R.omit(['radioValue'], {...rest});
+  const formValue = R.pathOr(
+    undefined,
+    [formName, 'values', input.name],
+    selectedForm,
+  );
 
   return (
     <div className="gc__radio">
@@ -35,9 +38,9 @@ function GcRadio(props: Props): React.Element<'div'> {
         {...ignoredRest}
         label={label}
         name={name}
-        value={value}
-        checked={radioGroupValue === internalValue}
-        onChange={handleChange}
+        value={input.value}
+        checked={formValue === input.value}
+        onChange={(e, {value}) => input.onChange(value)}
       />
       {meta.touched &&
         ((meta.error && <div className="form__error">{meta.error}</div>) ||
