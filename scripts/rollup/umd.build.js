@@ -62,6 +62,7 @@ async function build() {
       classnames: 'classNames',
       'react-modal': 'ReactModal',
       'semantic-ui-react': 'semanticUiReact',
+      ramda: 'R',
     },
   });
 }
