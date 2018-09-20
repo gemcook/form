@@ -3,10 +3,22 @@
     "target": "es2015",
     "module": "es6"
   },
-  "exclude": ["node_modules"],
   "path-intellisense.mappings": {
     "/": "${workspaceRoot}",
     "src": "${workspaceRoot}/src",
     "stories": "${workspaceRoot}/stories"
+  },
+  "typeAcquisition": {
+    "include": [
+      "prop-types",
+      "ramda",
+      "react",
+      "react-dom",
+      "react-redux",
+      "recompose",
+      "redux",
+      "redux-form",
+      "semantic-ui-react"
+    ]
   }
 }

@@ -13,14 +13,16 @@ function GcRadio(props: Props): React.Element<'div'> {
     input,
     outline,
     dark,
+    value,
     selectedForm,
     formName,
     label,
     name,
+    updateValue,
     ...rest
   } = props;
 
-  const ignoredRest = R.omit(['radioValue'], {...rest});
+  const ignoredRest = R.omit([''], {...rest});
   const formValue = R.pathOr(
     undefined,
     [formName, 'values', input.name],
@@ -38,9 +40,8 @@ function GcRadio(props: Props): React.Element<'div'> {
         {...ignoredRest}
         label={label}
         name={name}
-        value={input.value}
-        checked={formValue === input.value}
-        onChange={(e, {value}) => input.onChange(value)}
+        checked={formValue === value}
+        onChange={updateValue}
       />
       {meta.touched &&
         ((meta.error && <div className="form__error">{meta.error}</div>) ||

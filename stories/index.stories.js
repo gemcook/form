@@ -32,7 +32,7 @@ const RadioForm = props => {
       <Field
         type="radio"
         name="gender"
-        value="man"
+        value={true}
         label="男"
         component={Radio}
         selectedForm={props.form}
@@ -41,7 +41,7 @@ const RadioForm = props => {
       <Field
         type="radio"
         name="gender"
-        value="female"
+        value={false}
         label="女"
         component={Radio}
         selectedForm={props.form}
