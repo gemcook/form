@@ -1,7 +1,7 @@
 /* @flow */
 import * as React from 'react';
-import {Input} from 'semantic-ui-react';
 import classNames from 'classnames';
+import {Input} from 'semantic-ui-react';
 
 type Props = {
   type: string,
@@ -9,7 +9,6 @@ type Props = {
   input: Object,
   fluid: boolean,
   style: Object,
-  className: Object,
   meta: Object,
   disabled: boolean,
   maxLength: number,
@@ -25,7 +24,6 @@ export default function GcInput(props: Props): React.Element<'div'> {
     placeholder,
     fluid,
     style,
-    className,
     meta,
     disabled,
     maxLength,
@@ -38,7 +36,6 @@ export default function GcInput(props: Props): React.Element<'div'> {
     <div className="gc__input">
       <Input
         className={classNames({
-          ...className,
           outline: outline,
           dark: dark,
         })}

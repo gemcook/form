@@ -8,7 +8,6 @@ import type {Props} from './type.flow';
 
 function GcRadio(props: Props): React.Element<'div'> {
   const {
-    className,
     meta,
     input,
     outline,
@@ -33,7 +32,6 @@ function GcRadio(props: Props): React.Element<'div'> {
     <div className="gc__radio">
       <Radio
         className={classNames({
-          ...className,
           outline: outline,
           dark: dark,
         })}

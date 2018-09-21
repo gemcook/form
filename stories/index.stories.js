@@ -6,7 +6,7 @@ import {Welcome} from '@storybook/react/demo';
 import {createStore, combineReducers} from 'redux';
 import {Provider} from 'react-redux';
 import {reduxForm, Field, reducer as formReducer} from 'redux-form/immutable';
-import {Dropdown, Radio} from '.././src';
+import {Dropdown, Radio, Input} from '.././src';
 import prefecture from './prefecture';
 import radioEnhancer from './radioEnhancer';
 import '../src/styles/index.scss';
@@ -17,10 +17,12 @@ const store = createStore(reducer);
 const SampleForm = () => (
   <form>
     <Field
-      name="firstName"
-      component="input"
-      type="text"
-      placeholder="First Name"
+      fluid
+      dark
+      className="AA"
+      name="prefecture"
+      component={Input}
+      placeholder="都道府県"
     />
   </form>
 );

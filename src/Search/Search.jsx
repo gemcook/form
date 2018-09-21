@@ -9,7 +9,6 @@ type Props = {
   input: Object,
   fluid: boolean,
   style: Object,
-  className: Object,
   meta: Object,
   disabled: boolean,
   searchWords: Array<string>,
@@ -24,7 +23,6 @@ export default function GcSearch(props: Props): React.Element<'div'> {
     type,
     placeholder,
     style,
-    className,
     disabled,
     searchWords,
     removeSearchWord,
@@ -38,7 +36,6 @@ export default function GcSearch(props: Props): React.Element<'div'> {
         <div className="b__search-input">
           <Input
             className={classNames({
-              ...className,
               outline,
             })}
             autoComplete={autocomplete || 'off'}

@@ -4,7 +4,6 @@ import {TextArea} from 'semantic-ui-react';
 import classNames from 'classnames';
 
 type Props = {
-  className: Object,
   fluid: boolean,
   outline: boolean,
   dark: boolean,
@@ -19,7 +18,6 @@ type Props = {
 
 export default function GcTextArea(props: Props): React.Element<'div'> {
   const {
-    className,
     fluid,
     outline,
     dark,
@@ -42,7 +40,6 @@ export default function GcTextArea(props: Props): React.Element<'div'> {
     >
       <TextArea
         className={classNames({
-          ...className,
           fluid: fluid,
           outline: outline,
           diabled: disabled,

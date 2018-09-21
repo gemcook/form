@@ -7,21 +7,11 @@ import enhance from './enhance';
 type Props = Object;
 
 function GcDropdown(props: Props): React.Element<'div'> {
-  const {
-    changeToggle,
-    disabled,
-    input,
-    meta,
-    className,
-    outline,
-    dark,
-    ...rest
-  } = props;
+  const {changeToggle, disabled, input, meta, outline, dark, ...rest} = props;
   return (
     <div className="gc__dropdown">
       <Select
         className={classNames({
-          ...className,
           outline: outline,
           dark: dark,
         })}

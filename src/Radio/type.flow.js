@@ -34,7 +34,6 @@ type InternalProps = {
 
 type ExternalProps = {
   label: string,
-  className?: string,
   outline?: boolean,
   dark?: boolean,
   selectedForm: Object,

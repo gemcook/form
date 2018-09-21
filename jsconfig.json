@@ -1,24 +1,16 @@
 {
   "compilerOptions": {
-    "target": "es2015",
-    "module": "es6"
+    "target": "es2018",
   },
+  "exclude": [
+    "public",
+    "flow-typed",
+    "aws"
+  ],
+  "experimentalDecorators": true,
   "path-intellisense.mappings": {
     "/": "${workspaceRoot}",
     "src": "${workspaceRoot}/src",
-    "stories": "${workspaceRoot}/stories"
-  },
-  "typeAcquisition": {
-    "include": [
-      "prop-types",
-      "ramda",
-      "react",
-      "react-dom",
-      "react-redux",
-      "recompose",
-      "redux",
-      "redux-form",
-      "semantic-ui-react"
-    ]
+    "webpack": "${workspaceRoot}/webpack"
   }
 }
