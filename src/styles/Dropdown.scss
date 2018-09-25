@@ -2,6 +2,10 @@
   .ui.dropdown {
     height: 40px;
     padding: 0 !important;
+    border: none;
+    background: {
+      color: $form__white-color;
+    }
 
     &.outline {
       box-shadow: 0 0 30px #e9ecef;
