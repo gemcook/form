@@ -9,12 +9,13 @@ type Props = Object;
 function GcDropdown(props: Props): React.Element<'div'> {
   const {changeToggle, disabled, input, meta, outline, dark, ...rest} = props;
   return (
-    <div className="gc__dropdown">
+    <div
+      className={classNames('gc__dropdown', {
+        outline: outline,
+        dark: dark,
+      })}
+    >
       <Select
-        className={classNames({
-          outline: outline,
-          dark: dark,
-        })}
         value={input.value}
         onChange={(event, values) => {
           changeToggle(event, values);

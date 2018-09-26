@@ -1,4 +1,45 @@
 .gc__dropdown {
+  padding: {
+    bottom: 7px;
+  }
+
+  &.dark {
+    .ui.dropdown {
+      background: {
+        color: $form__dark-color;
+      }
+
+      border: solid 3px transparent !important;
+
+      &.active.visible {
+        border: solid 3px $form__main-color !important;
+        background-color: $form__white-color;
+      }
+
+      .text {
+        &.default {
+          color: $form__dark_placeholder-color;
+          font-weight: bold !important;
+        }
+      }
+
+      .menu {
+        border: {
+          right: solid 3px $form__main-color !important;
+          bottom: solid 3px $form__main-color !important;
+          left: solid 3px $form__main-color !important;
+        }
+
+        width: calc(100% + 6px);
+        margin-left: -3px;
+      }
+    }
+
+    &.disabled {
+      opacity: 0.4;
+    }
+  }
+
   .ui.dropdown {
     height: 40px;
     padding: 0 !important;
@@ -11,86 +52,26 @@
       opacity: 0.8;
     }
 
-    &.dark {
-      input {
-        border: none;
-        background: {
-          color: $form__dark-color;
-        }
+    input {
+      left: 0 !important;
+      height: 100%;
+      border: transparent 1px solid !important;
+      border-radius: 3px;
+
+      .search {
+        height: 100%;
 
         &:focus {
           background: {
             color: $form__white-color;
           }
-
-          box-shadow: 0 0 0 3px rgba($form__main-color, 0.7);
         }
 
         &:active {
           background: {
             color: $form__white-color;
           }
-
-          box-shadow: 0 0 0 3px rgba($form__main-color, 0.7);
         }
-      }
-
-      &.disabled {
-        opacity: 0.4;
-      }
-
-      :placeholder-shown {
-        color: $form__dark_placeholder-color;
-        font-weight: bold;
-      }
-
-      ::-webkit-input-placeholder {
-        color: $form__dark_placeholder-color;
-        font-weight: bold;
-      }
-
-      :-moz-placeholder {
-        color: $form__dark_placeholder-color;
-        font-weight: bold;
-        opacity: 1;
-      }
-
-      ::-moz-placeholder {
-        color: $form__dark_placeholder-color;
-        font-weight: bold;
-        opacity: 1;
-      }
-
-      :-ms-input-placeholder {
-        color: $form__dark_placeholder-color;
-      }
-
-      font-weight: bold;
-    }
-
-    input.search {
-      height: 100%;
-      padding: 0 !important;
-      border: none;
-
-      background: {
-        color: $form__white-color;
-      }
-
-      &:focus {
-        background: {
-          color: $form__white-color;
-        }
-
-        box-shadow: 0 0 0 3px rgba($form__main-color, 0.7);
-      }
-
-      &:active {
-        background: {
-          color: $form__white-color;
-        }
-
-        box-shadow: 0 0 0 3px rgba($form__main-color, 0.7);
       }
     }
 
