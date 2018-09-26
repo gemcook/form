@@ -1,4 +1,8 @@
 .gc__dropdown {
+  padding: {
+    bottom: 7px;
+  }
+
   .ui.dropdown {
     height: 40px;
     padding: 0 !important;
@@ -43,33 +47,35 @@
         opacity: 0.4;
       }
 
-      :placeholder-shown {
-        color: $form__dark_placeholder-color;
+      .text {
+        :placeholder-shown {
+          color: $form__dark_placeholder-color;
+          font-weight: bold;
+        }
+
+        ::-webkit-input-placeholder {
+          color: $form__dark_placeholder-color;
+          font-weight: bold;
+        }
+
+        :-moz-placeholder {
+          color: $form__dark_placeholder-color;
+          font-weight: bold;
+          opacity: 1;
+        }
+
+        ::-moz-placeholder {
+          color: $form__dark_placeholder-color;
+          font-weight: bold;
+          opacity: 1;
+        }
+
+        :-ms-input-placeholder {
+          color: $form__dark_placeholder-color;
+        }
+
         font-weight: bold;
       }
-
-      ::-webkit-input-placeholder {
-        color: $form__dark_placeholder-color;
-        font-weight: bold;
-      }
-
-      :-moz-placeholder {
-        color: $form__dark_placeholder-color;
-        font-weight: bold;
-        opacity: 1;
-      }
-
-      ::-moz-placeholder {
-        color: $form__dark_placeholder-color;
-        font-weight: bold;
-        opacity: 1;
-      }
-
-      :-ms-input-placeholder {
-        color: $form__dark_placeholder-color;
-      }
-
-      font-weight: bold;
     }
 
     input.search {
