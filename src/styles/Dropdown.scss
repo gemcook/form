@@ -9,22 +9,6 @@
         color: $form__dark-color;
       }
 
-      input {
-        border: none;
-
-        &:focus {
-          background: {
-            color: $form__white-color !important;
-          }
-        }
-
-        &:active {
-          background: {
-            color: $form__white-color;
-          }
-        }
-      }
-
       .text {
         &.default {
           color: $form__dark_placeholder-color;
@@ -42,12 +26,10 @@
     height: 40px;
     padding: 0 !important;
     border: solid 3px transparent !important;
-    background: {
-      color: $form__white-color;
-    }
 
     &.active.visible {
       border: solid 3px $form__main-color !important;
+      background-color: $form__white-color;
     }
 
     &.outline {
