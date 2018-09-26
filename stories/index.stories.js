@@ -18,7 +18,7 @@ const SampleForm = () => (
   <form>
     <Field
       fluid
-      // dark
+      dark
       className="AA"
       name="prefecture"
       component={Input}
