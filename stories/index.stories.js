@@ -1,15 +1,17 @@
 /* @flow */
-import * as React from 'react';
-import {storiesOf} from '@storybook/react';
 import {linkTo} from '@storybook/addon-links';
+import {storiesOf} from '@storybook/react';
 import {Welcome} from '@storybook/react/demo';
-import {createStore, combineReducers} from 'redux';
-import {Provider} from 'react-redux';
-import {reduxForm, Field, reducer as formReducer} from 'redux-form/immutable';
-import {Dropdown, Radio, Input} from '.././src';
-import prefecture from './prefecture';
-import radioEnhancer from './radioEnhancer';
+import * as React from 'react';
+import {connect, Provider} from 'react-redux';
+import {compose, setDisplayName, lifecycle, type HOC} from 'recompose';
+import {bindActionCreators, combineReducers, createStore} from 'redux';
+import {Field, reducer as formReducer, reduxForm} from 'redux-form/immutable';
+import {Dropdown, Input, RadioContainer} from '.././src';
+import * as R from 'ramda';
 import '../src/styles/index.scss';
+import prefecture from './prefecture';
+import RadioSection from './RadioSection';
 
 const reducer = combineReducers({form: formReducer});
 const store = createStore(reducer);
@@ -34,24 +36,47 @@ const RadioForm = props => {
       <Field
         type="radio"
         name="gender"
-        value={true}
-        label="男"
-        component={Radio}
+        component={RadioContainer}
         selectedForm={props.form}
         formName="Test3Form"
+        children={RadioSection}
       />
-      <Field
-        type="radio"
-        name="gender"
-        value={false}
-        label="女"
-        component={Radio}
-        selectedForm={props.form}
-        formName="Test3Form"
-      />
+      <button>SUBMIT</button>
     </form>
   );
 };
+
+const mapStateToProps = (state: Object) => ({
+  form: state.form.toJS(),
+});
+const mapDispatchToProps = (dispatch: Function) =>
+  bindActionCreators({}, dispatch);
+
+const radioEnhancer: HOC<Props, *> = compose(
+  setDisplayName('GcRadio'),
+  reduxForm({
+    form: 'Test3Form',
+    validate: valuesMap => {
+      const errors = {};
+      if (true) {
+        errors.gender = 'Required';
+      }
+      return errors;
+    },
+    initialValues: {
+      gender: 'man',
+    },
+  }),
+  connect(
+    mapStateToProps,
+    mapDispatchToProps,
+  ),
+  lifecycle({
+    componentDidMount() {
+      this.props.handleSubmit(() => {});
+    },
+  }),
+);
 const GcRadioForm = radioEnhancer(props => <RadioForm {...props} />);
 
 const DropdownForm = () => (

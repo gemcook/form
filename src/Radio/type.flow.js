@@ -9,36 +9,22 @@ type Input = {
   value: string,
 };
 
-type Meta = {
-  active: boolean,
-  asyncValidating: boolean,
-  autofilled: boolean,
-  dirty: boolean,
-  dispatch: Function,
-  error: any,
-  form: string,
-  initial: any,
-  invalid: boolean,
-  pristine: boolean,
-  submitting: boolean,
-  touched: boolean,
-  valid: boolean,
-  visited: boolean,
-  warning: boolean,
-};
-
 type InternalProps = {
   input: Input,
   meta: Meta,
 };
 
 type ExternalProps = {
-  label: string,
   outline?: boolean,
   dark?: boolean,
+  label: string,
+  value: any,
+  // by render props
+  type: string,
+  name: string,
   selectedForm: Object,
   formName: string,
-  name: string,
+  input: Input,
 };
 
 type Props = {} & InternalProps & ExternalProps;

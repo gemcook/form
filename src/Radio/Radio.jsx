@@ -8,7 +8,6 @@ import type {Props} from './type.flow';
 
 function GcRadio(props: Props): React.Element<'div'> {
   const {
-    meta,
     input,
     outline,
     dark,
@@ -18,10 +17,8 @@ function GcRadio(props: Props): React.Element<'div'> {
     label,
     name,
     updateValue,
-    ...rest
   } = props;
 
-  const ignoredRest = R.omit([''], {...rest});
   const formValue = R.pathOr(
     undefined,
     [formName, 'values', input.name],
@@ -35,17 +32,12 @@ function GcRadio(props: Props): React.Element<'div'> {
           outline: outline,
           dark: dark,
         })}
-        {...ignoredRest}
+        input={input}
         label={label}
         name={name}
         checked={formValue === value}
         onChange={updateValue}
       />
-      {meta.touched &&
-        ((meta.error && <div className="form__error">{meta.error}</div>) ||
-          (meta.warning && (
-            <div className="form__warning">{meta.warning}</div>
-          )))}
     </div>
   );
 }

@@ -1,4 +1,7 @@
 start:
+	NODE_PATH=$(shell which node) \
+	NODE_ENV=development \
+	BABEL_ENV=development \
 	yarn run storybook
 
 clean:
