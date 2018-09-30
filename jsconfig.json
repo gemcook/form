@@ -2,11 +2,6 @@
   "compilerOptions": {
     "target": "es2018",
   },
-  "exclude": [
-    "public",
-    "flow-typed",
-    "aws"
-  ],
   "experimentalDecorators": true,
   "path-intellisense.mappings": {
     "/": "${workspaceRoot}",

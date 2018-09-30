@@ -4,7 +4,7 @@ module.exports = function getBabelOptions() {
     {
       exclude: 'node_modules/**',
       babelrc: false,
-      presets: ['babel-preset-stage-flow'],
+      presets: ['stage-flow'],
       runtimeHelpers: true,
     },
   );
