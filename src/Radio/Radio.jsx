@@ -6,12 +6,13 @@ import enhance from './enhancer';
 import * as R from 'ramda';
 import type {Props} from './type.flow';
 
-function GcRadio(props: Props): React.Element<'div'> {
+function GcRadio(props: Props) {
   const {
     input,
     outline,
     dark,
     value,
+    className,
     selectedForm,
     formName,
     label,
@@ -28,10 +29,13 @@ function GcRadio(props: Props): React.Element<'div'> {
   return (
     <div className="gc__radio">
       <Radio
-        className={classNames({
-          outline: outline,
-          dark: dark,
-        })}
+        className={R.concat(
+          classNames({
+            outline: outline,
+            dark: dark,
+          }),
+          className,
+        )}
         input={input}
         label={label}
         name={name}

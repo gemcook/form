@@ -2,34 +2,20 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import {Input} from 'semantic-ui-react';
+import type {Props} from './type.flow';
 
-type Props = {
-  type: string,
-  placeholder: string,
-  input: Object,
-  fluid: boolean,
-  style: Object,
-  meta: Object,
-  disabled: boolean,
-  maxLength: number,
-  outline: boolean,
-  dark: boolean,
-  autocomplete: string,
-};
-
-export default function GcInput(props: Props): React.Element<'div'> {
+export default function GcInput(props: Props) {
   const {
     input,
     type,
     placeholder,
-    fluid,
-    style,
     meta,
     disabled,
     maxLength,
     outline,
     dark,
     autocomplete,
+    ...rest
   } = props;
 
   return (
@@ -40,9 +26,7 @@ export default function GcInput(props: Props): React.Element<'div'> {
           dark: dark,
         })}
         autoComplete={autocomplete || 'off'}
-        style={style}
-        fluid={fluid}
-        type={type}
+        type={type || 'input'}
         placeholder={placeholder}
         maxLength={maxLength || 30}
         disabled={disabled}
@@ -52,6 +36,7 @@ export default function GcInput(props: Props): React.Element<'div'> {
         onChange={input.onChange}
         onBlur={input.onBlur}
         onFocus={input.onFocus}
+        {...rest}
       />
       {meta.touched &&
         ((meta.error && <div className="form__error">{meta.error}</div>) ||
