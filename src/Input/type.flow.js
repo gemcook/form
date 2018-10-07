@@ -12,4 +12,4 @@ type Props = {
   autocomplete: string,
 };
 
-export {Props};
+export type {Props};

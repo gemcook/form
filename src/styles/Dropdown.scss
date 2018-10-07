@@ -4,6 +4,13 @@
   }
 
   &.dark {
+    a.ui.label {
+      font-weight: normal;
+      color: white;
+      background-color: #444c55;
+      border-color: #3d444c #2f353b #2c3137;
+    }
+
     .ui.dropdown {
       background: {
         color: $form__dark-color;
@@ -12,14 +19,14 @@
       border: solid 3px transparent !important;
 
       &.active.visible {
-        border: solid 3px $form__main-color !important;
         background-color: $form__white-color;
+        border: solid 3px $form__main-color !important;
       }
 
       .text {
         &.default {
-          color: $form__dark_placeholder-color;
           font-weight: bold !important;
+          color: $form__dark_placeholder-color;
         }
       }
 
@@ -41,7 +48,7 @@
   }
 
   .ui.dropdown {
-    height: 40px;
+    min-height: 40px;
     padding: 0 !important;
 
     &.outline {
@@ -50,6 +57,12 @@
 
     &.disabled {
       opacity: 0.8;
+    }
+
+    i.dropdown.icon {
+      display: inline-flex;
+      align-items: center;
+      height: 100%;
     }
 
     input {
@@ -77,8 +90,8 @@
 
     div.text {
       display: inline-flex;
-      height: 100%;
       align-items: center;
+      height: 100%;
       padding: {
         left: 1rem;
       }

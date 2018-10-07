@@ -1,9 +1,9 @@
 /* @flow */
 import {compose, setDisplayName, withStateHandlers, type HOC} from 'recompose';
-import type {ExternalProps, InternalProps} from './type.flow';
 import * as R from 'ramda';
+import type {Props} from './type.flow';
 
-const enhance: HOC<InternalProps, ExternalProps> = compose(
+const enhance: HOC<Props, *> = compose(
   setDisplayName('GcRadio'),
   withStateHandlers(
     props => {

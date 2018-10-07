@@ -9,14 +9,12 @@ type Input = {
   value: string,
 };
 
-type InternalProps = {
+type Props = {
   input: Input,
-  meta: Meta,
-};
-
-type ExternalProps = {
-  outline?: boolean,
-  dark?: boolean,
+  updateValue: Function,
+  className: string,
+  outline: boolean,
+  dark: boolean,
   label: string,
   value: any,
   // by render props
@@ -27,6 +25,4 @@ type ExternalProps = {
   input: Input,
 };
 
-type Props = {} & InternalProps & ExternalProps;
-
-export type {Props, InternalProps, ExternalProps};
+export type {Props};

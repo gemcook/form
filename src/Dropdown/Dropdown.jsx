@@ -3,11 +3,11 @@ import * as React from 'react';
 import classNames from 'classnames';
 import {Select} from 'semantic-ui-react';
 import enhance from './enhance';
+import type {Props} from './type.flow';
 
-type Props = Object;
+function GcDropdown(props: Props) {
+  const {onChange, disabled, input, meta, outline, dark, ...rest} = props;
 
-function GcDropdown(props: Props): React.Element<'div'> {
-  const {changeToggle, disabled, input, meta, outline, dark, ...rest} = props;
   return (
     <div
       className={classNames('gc__dropdown', {
@@ -17,9 +17,7 @@ function GcDropdown(props: Props): React.Element<'div'> {
     >
       <Select
         value={input.value}
-        onChange={(event, values) => {
-          changeToggle(event, values);
-        }}
+        onChange={onChange}
         readOnly={disabled}
         {...rest}
       />

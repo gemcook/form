@@ -1,10 +1,11 @@
 /* @flow */
 import {compose, setDisplayName, withHandlers, type HOC} from 'recompose';
+import type {Props} from './type.flow';
 
-const enhance: HOC<*, *> = compose(
+const enhance: HOC<Props, *> = compose(
   setDisplayName('GcDropdown'),
   withHandlers({
-    changeToggle: props => (event: Event, nextInput) => {
+    onChange: props => (event: Event, nextInput) => {
       const {input} = props;
       input.onChange(nextInput.value);
     },

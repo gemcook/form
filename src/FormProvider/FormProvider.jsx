@@ -1,9 +1,8 @@
 /* @flow */
 import * as React from 'react';
-import enhance from './enhancer';
 import type {Props} from './type.flow';
 
-function FormProvider(props: Props) {
+export default function FormProvider(props: Props) {
   const {
     meta: {touched, error, warning},
     children,
@@ -19,5 +18,3 @@ function FormProvider(props: Props) {
     </div>
   );
 }
-
-export default enhance(props => <FormProvider {...props} />);
