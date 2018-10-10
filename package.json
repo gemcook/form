@@ -20,8 +20,7 @@
     "build:umd": "node ./scripts/rollup/umd.build.js",
     "prepublishOnly": "make prepublish",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook",
-    "gen-flow": "flow gen-flow-files --quiet ./src/index.js --out-dir ./flow-typed"
+    "build-storybook": "build-storybook"
   },
   "devDependencies": {
     "@babel/core": "7.1.2",

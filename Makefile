@@ -16,7 +16,7 @@ build-umd:
 prepublish:
 	$(MAKE) clean
 	$(MAKE) build-umd
-	cp -r ./src/styles/ ./lib/styles/
+	cp -r ./src/styles ./lib/styles
 
 build:
 	yarn run build-storybook
@@ -24,8 +24,3 @@ build:
 publish:
 	yarn publish --access public
 
-gen-flow:
-	yarn gen-flow
-
-gen-flow-raw:
-	flow gen-flow-files ./src/index.js > ./flow-typed/index.js
