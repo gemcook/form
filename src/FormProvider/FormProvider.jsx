@@ -1,6 +1,6 @@
 /* @flow */
 import * as React from 'react';
-import type {Props} from './type.flow';
+import {type Props} from './type.flow';
 
 export default function FormProvider(props: Props) {
   const {

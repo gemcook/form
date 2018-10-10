@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import {Radio} from 'semantic-ui-react';
 import enhance from './enhancer';
 import * as R from 'ramda';
-import type {Props} from './type.flow';
+import {type Props} from './type.flow';
 
 function GcRadio(props: Props) {
   const {
@@ -34,7 +34,7 @@ function GcRadio(props: Props) {
             outline: outline,
             dark: dark,
           }),
-          className,
+          R.defaultTo('')(className),
         )}
         input={input}
         label={label}

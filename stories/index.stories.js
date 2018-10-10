@@ -2,21 +2,21 @@
 import {linkTo} from '@storybook/addon-links';
 import {storiesOf} from '@storybook/react';
 import {Welcome} from '@storybook/react/demo';
+import {connect} from 'react-redux';
 import * as React from 'react';
-import {connect, Provider} from 'react-redux';
-import {compose, setDisplayName, lifecycle, type HOC} from 'recompose';
-import {bindActionCreators, combineReducers, createStore} from 'redux';
+import {bindActionCreators} from 'redux';
+import {Provider} from 'react-redux';
+import {combineReducers, createStore} from 'redux';
+import RadioSection from './RadioSection';
 import {Field, reducer as formReducer, reduxForm} from 'redux-form/immutable';
-import {Dropdown, Input} from '.././src';
-import * as R from 'ramda';
+import {Dropdown, Input, FormProvider} from '.././src';
 import '../src/styles/index.scss';
 import prefecture from './prefecture';
-import RadioSection from './RadioSection';
 
 const reducer = combineReducers({form: formReducer});
 const store = createStore(reducer);
 
-const SampleForm = () => (
+const InputForm = () => (
   <form>
     <Field
       fluid
@@ -45,21 +45,52 @@ const DropdownForm = () => (
   </form>
 );
 
-const TestForm = reduxForm({form: 'TestForm'})(SampleForm);
-const Test2Form = reduxForm({form: 'Tesr2Form'})(DropdownForm);
+const RadioForm = props => {
+  console.log(props);
+
+  return (
+    <form>
+      <Field
+        type="radio"
+        name="category"
+        component={FormProvider}
+        selectedForm={props.form}
+        formName="radioForm"
+        children={RadioSection}
+      />
+    </form>
+  );
+};
+
+const InputFormPage = reduxForm({form: 'inputForm'})(InputForm);
+const DropdownFormPage = reduxForm({form: 'dropdownForm'})(DropdownForm);
+
+const RadioFormPage = reduxForm({form: 'radioForm'})(
+  connect(
+    state => ({
+      form: state.form.toJS(),
+    }),
+    dispatch => bindActionCreators({}, dispatch),
+  )(RadioForm),
+);
 
 storiesOf('Welcome', module).add('to Gemcook Component', () => (
   <Welcome showApp={linkTo('Button')} />
 ));
 
 storiesOf('Sample', module)
-  .add('Sample', () => (
+  .add('InputFormPage', () => (
     <Provider store={store}>
-      <TestForm />
+      <InputFormPage />
     </Provider>
   ))
-  .add('Dropdown', () => (
+  .add('DropdownFormPage', () => (
     <Provider store={store}>
-      <Test2Form />
+      <DropdownFormPage />
+    </Provider>
+  ))
+  .add('RadioFormPage', () => (
+    <Provider store={store}>
+      <RadioFormPage />
     </Provider>
   ));

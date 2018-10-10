@@ -1,16 +1,7 @@
 /* @flow */
-type Input = {
-  name: string,
-  onBlur: Function,
-  onChange: Function,
-  onDragStart: Function,
-  onDrop: Function,
-  onFocus: Function,
-  value: string,
-};
+import {type FieldProps} from 'redux-form';
 
-type Props = {
-  input: Input,
+export type Props = {
   updateValue: Function,
   className: string,
   outline: boolean,
@@ -22,7 +13,4 @@ type Props = {
   name: string,
   selectedForm: Object,
   formName: string,
-  input: Input,
-};
-
-export type {Props};
+} & FieldProps;

@@ -1,13 +1,9 @@
 /* @flow */
 import * as React from 'react';
 import {Checkbox} from 'semantic-ui-react';
+import {type Props} from './type.flow';
 
-type Props = {
-  input: Object,
-  meta: Object,
-};
-
-export default function GcCheckbox(props: Props): React.Element<'div'> {
+export default function GcCheckbox(props: Props) {
   const {meta, input, ...rest} = props;
 
   return (

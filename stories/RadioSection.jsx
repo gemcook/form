@@ -2,9 +2,7 @@
 import * as React from 'react';
 import {Radio} from '.././src';
 
-type Props = Object;
-
-export default function RadioSection(props: Props) {
+export default function RadioSection(props: Object) {
   const {selectedForm, name, input, formName, type} = props;
 
   return (

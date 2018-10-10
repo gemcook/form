@@ -5,9 +5,10 @@ export type Props = {
   type: string,
   placeholder: string,
   fluid: boolean,
+  style: Object,
   disabled: boolean,
-  maxLength: number,
+  searchWords: Array<string>,
+  removeSearchWord: (index: number) => void,
   outline: boolean,
-  dark: boolean,
   autocomplete: string,
 } & FieldProps;

@@ -2,7 +2,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import {Input} from 'semantic-ui-react';
-import type {Props} from './type.flow';
+import {type Props} from './type.flow';
 
 export default function GcInput(props: Props) {
   const {

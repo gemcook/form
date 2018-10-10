@@ -2,21 +2,9 @@
 import * as React from 'react';
 import {TextArea} from 'semantic-ui-react';
 import classNames from 'classnames';
+import {type Props} from './type.flow';
 
-type Props = {
-  fluid: boolean,
-  outline: boolean,
-  dark: boolean,
-  autoHeight: boolean,
-  disabled: boolean,
-  style: Object,
-  placeholder: string,
-  rows: number,
-  input: Object,
-  meta: Object,
-};
-
-export default function GcTextArea(props: Props): React.Element<'div'> {
+export default function GcTextArea(props: Props) {
   const {
     fluid,
     outline,

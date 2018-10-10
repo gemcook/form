@@ -2,22 +2,9 @@
 import * as React from 'react';
 import {Input, Button, Label, Icon} from 'semantic-ui-react';
 import classNames from 'classnames';
+import {type Props} from './type.flow';
 
-type Props = {
-  type: string,
-  placeholder: string,
-  input: Object,
-  fluid: boolean,
-  style: Object,
-  meta: Object,
-  disabled: boolean,
-  searchWords: Array<string>,
-  removeSearchWord: (index: number) => void,
-  outline: boolean,
-  autocomplete: string,
-};
-
-export default function GcSearch(props: Props): React.Element<'div'> {
+export default function GcSearch(props: Props) {
   const {
     input,
     type,

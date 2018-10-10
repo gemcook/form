@@ -4,34 +4,23 @@ const closure = require('rollup-plugin-closure-compiler-js');
 const commonjs = require('rollup-plugin-commonjs');
 const prettier = require('rollup-plugin-prettier');
 const replace = require('rollup-plugin-replace');
-// const stripBanner = require('rollup-plugin-strip-banner');
-const json = require('rollup-plugin-json');
-const url = require('rollup-plugin-url');
 const resolve = require('rollup-plugin-node-resolve');
 const postcss = require('rollup-plugin-postcss');
-const {
-  getBabelOptions,
-  resolvePath,
-  getClosureOptions,
-  isExternal,
-} = require('./utils');
+const {getBabelOptions, resolvePath, getClosureOptions} = require('./utils');
 
 const isProduction = process.env.NODE_ENV === 'production';
 
 async function build() {
   const bundle = await rollup({
     input: resolvePath('src/index.js'),
-    external: isExternal,
+    external: ['react', 'react-dom'],
     plugins: [
       resolve({
-        extensions: ['.js', '.json', '.jsx'],
         preferBuiltins: false,
         customResolveOptions: {
           moduleDirectory: resolvePath('node_modules'),
         },
       }),
-      json(),
-      url(),
       postcss({
         extensions: ['.css'],
       }),
@@ -40,7 +29,7 @@ async function build() {
       }),
       babel(getBabelOptions()),
       replace({
-        'process.env.NODE_ENV': isProduction ? "'production'" : "'development'",
+        'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
       }),
       closure(getClosureOptions()),
       // TODO: COPYRIGHT
