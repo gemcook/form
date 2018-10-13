@@ -17,6 +17,7 @@ prepublish:
 	$(MAKE) clean
 	$(MAKE) build-umd
 	cp -r ./src/styles ./lib/styles
+	cp ./flow-typed/index.js.flow ./lib/index.js.flow
 
 build:
 	yarn run build-storybook
@@ -24,3 +25,8 @@ build:
 publish:
 	yarn publish --access public
 
+gen-flow:
+	flow gen-flow-files src/index.js --out-dir flow-typed
+
+flow-server:
+	flow server --file-watcher watchman --file-watcher-debug

@@ -10,6 +10,7 @@ import {combineReducers, createStore} from 'redux';
 import RadioSection from './RadioSection';
 import {Field, reducer as formReducer, reduxForm} from 'redux-form/immutable';
 import {Dropdown, Input, FormProvider} from '.././src';
+// $ImportStyle
 import '../src/styles/index.scss';
 import prefecture from './prefecture';
 

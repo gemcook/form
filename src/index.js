@@ -1,9 +1,8 @@
 /* @flow */
-export * from './Input';
-export * from './Search';
-export * from './Checkbox';
-export * from './validates';
-export * from './TextArea';
-export * from './Dropdown';
-export * from './Radio';
-export * from './FormProvider';
+export {Input} from './Input';
+export {Search} from './Search';
+export {Checkbox} from './Checkbox';
+export {TextArea} from './TextArea';
+export {Dropdown} from './Dropdown';
+export {Radio} from './Radio';
+export {FormProvider} from './FormProvider';

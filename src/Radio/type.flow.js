@@ -3,7 +3,7 @@ import {type FieldProps} from 'redux-form';
 
 export type Props = {
   updateValue: Function,
-  className: string,
+  className?: string,
   outline: boolean,
   dark: boolean,
   label: string,

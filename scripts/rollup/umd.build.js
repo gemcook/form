@@ -12,12 +12,12 @@ const isProduction = process.env.NODE_ENV === 'production';
 
 rollup({
   input: resolvePath('./src/index.js'),
-  external: ['react', 'react-dom'],
+  external: ['react', 'react-dom', 'semantic-ui-react'],
   plugins: [
     babel(getBabelOptions()),
     resolve({
-      preferBuiltins: false,
       extensions: ['.mjs', '.js', '.jsx', '.json'],
+      preferBuiltins: false,
     }),
     commonjs({
       include: 'node_modules/**',

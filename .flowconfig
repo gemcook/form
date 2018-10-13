@@ -1,11 +1,3 @@
-[ignore]
-
-[include]
-
-[libs]
-
-[lints]
-
 [options]
 esproposal.class_instance_fields=enable
 esproposal.class_static_fields=enable
@@ -14,6 +6,5 @@ esproposal.export_star_as=enable
 esproposal.optional_chaining=enable
 esproposal.nullish_coalescing=enable
 
-module.file_ext=.scss
-
-[strict]
+suppress_comment= \\(.\\|\n\\)*\\$FlowFixMe
+suppress_comment= \\(.\\|\n\\)*\\$ImportStyle
