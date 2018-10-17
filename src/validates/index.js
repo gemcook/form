@@ -1,6 +1,6 @@
 /* @flow */
 import search from './search';
 
-export const validates = {
+export default {
   search,
 };

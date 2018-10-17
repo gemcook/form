@@ -36,7 +36,7 @@
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.2",
-    "babel-preset-stage-flow": "^7.1.2-201810111908",
+    "babel-preset-stage-flow": "^7.1.4-patch.1",
     "babel-runtime": "^6.26.0",
     "css-loader": "^1.0.0",
     "eslint": "^5.6.1",
@@ -79,13 +79,12 @@
   "dependencies": {
     "@hocs/with-lifecycle": "^0.5.0",
     "classnames": "^2.2.6",
-    "prop-types": "^15.6.2",
     "ramda": "^0.25.0",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "react-redux": "^5.0.7",
     "recompose": "^0.30.0",
-    "redux": "^4.0.0",
+    "redux": "^4.0.1",
     "redux-form": "^7.4.2",
     "semantic-ui-react": "^0.82.5"
   }

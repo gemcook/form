@@ -2595,10 +2595,10 @@ babel-preset-stage-3@^6.24.1:
     babel-plugin-transform-exponentiation-operator "^6.24.1"
     babel-plugin-transform-object-rest-spread "^6.22.0"
 
-babel-preset-stage-flow@^7.1.2-201810111908:
-  version "7.1.4"
-  resolved "https://registry.yarnpkg.com/babel-preset-stage-flow/-/babel-preset-stage-flow-7.1.4.tgz#3d829f3fe9d9917ce8779a5acb58593dd95c00a6"
-  integrity sha512-vxQBbCQ85KJL/1WW3Fxj8IttLdQaTpzDNVUOda6X9/2OLvYYRXFqRb5QJ5T2HU16uJiZMueiiLOj1kn2Jww+PQ==
+babel-preset-stage-flow@^7.1.4-patch.1:
+  version "7.1.4-patch.1"
+  resolved "https://registry.yarnpkg.com/babel-preset-stage-flow/-/babel-preset-stage-flow-7.1.4-patch.1.tgz#cfa64d7a8b3c8d7e78ac2b049a6339c6777009e1"
+  integrity sha512-EOaXBUzJVb3+etojbgfBMVYcg3GH+WkjAziwYW7a9SKL1FYwSHhCvFC4fCDl70xvYah2YKTVzZZFyTMkR/eqbQ==
   dependencies:
     "@babel/core" "^7.1.2"
     "@babel/helper-plugin-utils" "7.0.0"
@@ -9545,7 +9545,7 @@ redux@^3.7.2:
     loose-envify "^1.1.0"
     symbol-observable "^1.0.3"
 
-redux@^4.0.0:
+redux@^4.0.1:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/redux/-/redux-4.0.1.tgz#436cae6cc40fbe4727689d7c8fae44808f1bfef5"
   integrity sha512-R7bAtSkk7nY6O/OYMVR9RiBI+XghjF9rlbl5806HJbQph0LJVHZrU5oaO4q70eUKiqMRqm4y07KLTlMZ2BlVmg==
