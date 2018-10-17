@@ -11,10 +11,12 @@ export default function FormProvider(props: Props): React.Element<'div'> {
 
   return (
     <div className="gc__form-provider">
-      {children(rest)}
-      {touched &&
-        ((error && <span className="error">{error}</span>) ||
-          (warning && <span className="warning">{warning}</span>))}
+      <React.Fragment>
+        {children(rest)}
+        {touched &&
+          ((error && <span className="error">{error}</span>) ||
+            (warning && <span className="warning">{warning}</span>))}
+      </React.Fragment>
     </div>
   );
 }
