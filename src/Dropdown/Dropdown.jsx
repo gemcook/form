@@ -3,9 +3,9 @@ import * as React from 'react';
 import classNames from 'classnames';
 import {Select} from 'semantic-ui-react';
 import enhance from './enhance';
-import {type Props} from './type.flow';
+import type {Props} from './type.flow';
 
-function GcDropdown(props: Props) {
+function GcDropdown(props: Props): React.Element<'div'> {
   const {onChange, disabled, input, meta, outline, dark, ...rest} = props;
 
   return (
