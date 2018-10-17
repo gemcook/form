@@ -4,15 +4,13 @@ import classNames from 'classnames';
 import {Radio} from 'semantic-ui-react';
 import enhance from './enhancer';
 import * as R from 'ramda';
-import type {Props} from './type.flow';
 
-function GcRadio(props: Props): React.Element<'div'> {
+function GcRadio(props: Object): React.Element<'div'> {
   const {
     input,
     outline,
     dark,
     value,
-    className,
     selectedForm,
     formName,
     label,
@@ -29,13 +27,10 @@ function GcRadio(props: Props): React.Element<'div'> {
   return (
     <div className="gc__radio">
       <Radio
-        className={R.concat(
-          classNames({
-            outline: outline,
-            dark: dark,
-          }),
-          R.defaultTo('')(className),
-        )}
+        className={classNames({
+          outline: outline,
+          dark: dark,
+        })}
         input={input}
         label={label}
         name={name}
