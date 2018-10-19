@@ -1,8 +1,4 @@
 .gc__dropdown {
-  padding: {
-    bottom: 7px;
-  }
-
   &.dark {
     a.ui.label {
       font-weight: normal;
@@ -48,6 +44,7 @@
   }
 
   .ui.dropdown {
+    height: 40px;
     min-height: 40px;
     padding: 0 !important;
 
@@ -92,6 +89,7 @@
       display: inline-flex;
       align-items: center;
       height: 100%;
+      margin: 0;
       padding: {
         left: 1rem;
       }

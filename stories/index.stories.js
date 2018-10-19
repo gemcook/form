@@ -33,7 +33,6 @@ const InputForm = () => (
 const DropdownForm = () => (
   <form>
     <Field
-      search
       fluid
       dark
       multiple
