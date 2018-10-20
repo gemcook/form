@@ -30,7 +30,7 @@ function GcDropdown(props: Props): Element<*> {
         onChange={handleOnChange}
         onFocus={input.onFocus}
         onBlur={input.onBlur}
-        error={meta.error}
+        error={!!meta.error}
         disabled={meta.submitting}
         loading={false}
         {...rest}
