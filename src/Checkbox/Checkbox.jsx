@@ -11,7 +11,6 @@ export default function GcCheckbox(props: Props): Element<*> {
     <div className="gc__checkbox">
       <Checkbox
         name={input.name}
-        value={input.value}
         checked={input.checked}
         onChange={(e, {checked}) => input.onChange(checked)}
         onFocus={input.onFocus}
