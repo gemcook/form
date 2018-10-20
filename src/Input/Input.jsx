@@ -29,7 +29,7 @@ export default function GcInput(props: Props): Element<*> {
         placeholder={placeholder}
         maxLength={maxLength || 30}
         disabled={disabled || meta.submitting}
-        loading={meta.submitting}
+        loading={false}
         name={input.name}
         value={input.value}
         onChange={input.onChange}

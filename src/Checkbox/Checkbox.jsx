@@ -15,6 +15,7 @@ export default function GcCheckbox(props: Props): Element<*> {
         checked={input.checked}
         onChange={(e, {checked}) => input.onChange(checked)}
         onFocus={input.onFocus}
+        disabled={meta.submitting}
         {...rest}
       />
       {meta.touched &&

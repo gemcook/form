@@ -17,6 +17,8 @@ type Props = {
   dark?: boolean,
   disabled?: boolean,
   placeholder?: string,
+  outline?: boolean,
+  fluid?: boolean,
 } & SemanticUIReactTextArea &
   FieldProps;
 

@@ -31,7 +31,8 @@ function GcDropdown(props: Props): Element<*> {
         onFocus={input.onFocus}
         onBlur={input.onBlur}
         error={meta.error}
-        loading={meta.submitting}
+        disabled={meta.submitting}
+        loading={false}
         {...rest}
       />
       {meta.touched &&

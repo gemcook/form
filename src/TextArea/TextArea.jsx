@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import type {Props} from './type.flow';
 
 export default function GcTextArea(props: Props): React.Element<'div'> {
-  const {dark, input, meta, disabled, ...rest} = props;
+  const {dark, fluid, outline, input, meta, disabled, ...rest} = props;
 
   return (
     <div
@@ -15,6 +15,11 @@ export default function GcTextArea(props: Props): React.Element<'div'> {
       })}
     >
       <TextArea
+        className={classNames({
+          fluid: fluid,
+          outline: outline,
+          diabled: disabled,
+        })}
         name={input.name}
         value={input.value}
         onChange={input.onChange}
