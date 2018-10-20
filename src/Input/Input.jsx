@@ -1,13 +1,13 @@
 /* @flow */
 import * as React from 'react';
+import type {Element} from 'react';
 import classNames from 'classnames';
 import {Input} from 'semantic-ui-react';
 import type {Props} from './type.flow';
 
-export default function GcInput(props: Props): React.Element<'div'> {
+export default function GcInput(props: Props): Element<*> {
   const {
     input,
-    type,
     placeholder,
     meta,
     disabled,
@@ -26,16 +26,13 @@ export default function GcInput(props: Props): React.Element<'div'> {
           dark: dark,
         })}
         autoComplete={autocomplete || 'off'}
-        type={type || 'input'}
         placeholder={placeholder}
         maxLength={maxLength || 30}
-        disabled={disabled}
-        loading={false}
+        disabled={disabled || meta.submitting}
+        loading={meta.submitting}
         name={input.name}
         value={input.value}
         onChange={input.onChange}
-        onBlur={input.onBlur}
-        onFocus={input.onFocus}
         {...rest}
       />
       {meta.touched &&

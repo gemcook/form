@@ -1,8 +1,9 @@
 /* @flow */
 import * as React from 'react';
+import type {Element} from 'react';
 import type {Props} from './type.flow';
 
-export default function FormProvider(props: Props): React.Element<'div'> {
+export default function FormProvider(props: Props): Element<*> {
   const {
     meta: {touched, error, warning},
     children,

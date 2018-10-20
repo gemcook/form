@@ -1,10 +1,11 @@
 /* @flow */
 import * as React from 'react';
+import type {Element} from 'react';
 import {Input, Button, Label, Icon} from 'semantic-ui-react';
 import classNames from 'classnames';
 import type {Props} from './type.flow';
 
-export default function GcSearch(props: Props): React.Element<'div'> {
+export default function GcSearch(props: Props): Element<*> {
   const {
     input,
     type,

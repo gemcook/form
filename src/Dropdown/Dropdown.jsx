@@ -1,12 +1,21 @@
 /* @flow */
 import * as React from 'react';
+import type {Element} from 'react';
 import classNames from 'classnames';
-import {Select} from 'semantic-ui-react';
+import {Dropdown} from 'semantic-ui-react';
 import enhance from './enhance';
 import type {Props} from './type.flow';
 
-function GcDropdown(props: Props): React.Element<'div'> {
-  const {onChange, disabled, input, meta, outline, dark, ...rest} = props;
+function GcDropdown(props: Props): Element<*> {
+  const {
+    handleOnChange,
+    selection = true,
+    input,
+    meta,
+    outline,
+    dark,
+    ...rest
+  } = props;
 
   return (
     <div
@@ -15,10 +24,14 @@ function GcDropdown(props: Props): React.Element<'div'> {
         dark: dark,
       })}
     >
-      <Select
+      <Dropdown
+        selection={selection}
         value={input.value}
-        onChange={onChange}
-        readOnly={disabled}
+        onChange={handleOnChange}
+        onFocus={input.onFocus}
+        onBlur={input.onBlur}
+        error={meta.error}
+        loading={meta.submitting}
         {...rest}
       />
       {meta.touched &&

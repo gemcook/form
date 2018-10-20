@@ -1,18 +1,19 @@
 /* @flow */
 import * as React from 'react';
+import type {Element} from 'react';
 import {Checkbox} from 'semantic-ui-react';
 import type {Props} from './type.flow';
 
-export default function GcCheckbox(props: Props): React.Element<'div'> {
+export default function GcCheckbox(props: Props): Element<*> {
   const {meta, input, ...rest} = props;
 
   return (
     <div className="gc__checkbox">
       <Checkbox
         name={input.name}
+        value={input.value}
         checked={input.checked}
         onChange={(e, {checked}) => input.onChange(checked)}
-        onBlur={input.onBlur}
         onFocus={input.onFocus}
         {...rest}
       />

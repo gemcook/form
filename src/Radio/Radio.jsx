@@ -1,11 +1,13 @@
 /* @flow */
 import * as React from 'react';
+import type {Element} from 'react';
 import classNames from 'classnames';
 import {Radio} from 'semantic-ui-react';
 import enhance from './enhancer';
 import * as R from 'ramda';
+import type {Props} from './type.flow';
 
-function GcRadio(props: Object): React.Element<'div'> {
+function GcRadio(props: Props): Element<*> {
   const {
     input,
     outline,

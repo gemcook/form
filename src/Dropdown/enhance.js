@@ -5,7 +5,7 @@ import type {Props} from './type.flow';
 const enhance: HOC<Props, *> = compose(
   setDisplayName('GcDropdown'),
   withHandlers({
-    onChange: props => (event: Event, nextInput) => {
+    handleOnChange: props => (event: SyntheticEvent<*>, nextInput: Object) => {
       const {input} = props;
       input.onChange(nextInput.value);
     },

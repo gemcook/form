@@ -1,7 +1,7 @@
 /* @flow */
 import type {FieldProps} from 'redux-form';
 
-export type Props = {
+type Props = {
   type: string,
   placeholder: string,
   fluid: boolean,
@@ -12,3 +12,5 @@ export type Props = {
   outline: boolean,
   autocomplete: string,
 } & FieldProps;
+
+export type {Props};

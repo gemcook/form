@@ -1,6 +1,6 @@
 const {rollup} = require('rollup');
 const babel = require('rollup-plugin-babel');
-const closure = require('rollup-plugin-closure-compiler-js');
+const compiler = require('@ampproject/rollup-plugin-closure-compiler');
 const commonjs = require('rollup-plugin-commonjs');
 const prettier = require('rollup-plugin-prettier');
 const replace = require('rollup-plugin-replace');
@@ -25,7 +25,7 @@ rollup({
     replace({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
     }),
-    closure(getClosureOptions()),
+    compiler(getClosureOptions()),
     postcss({
       extensions: ['.css'],
     }),

@@ -1,13 +1,23 @@
 /* @flow */
+// https://github.com/erikras/redux-form/blob/master/src/FieldProps.types.js.flow
 import type {FieldProps} from 'redux-form';
 
-export type Props = {
-  fluid: boolean,
-  outline: boolean,
-  dark: boolean,
-  autoHeight: boolean,
-  disabled: boolean,
+type SemanticUIReactTextArea = {
+  value: number | string,
   style: Object,
-  placeholder: string,
-  rows: number,
-} & FieldProps;
+  rows: number | string,
+  onInput: (event: SyntheticEvent<*>, data: Object) => void,
+  onChange: (event: SyntheticEvent<*>, data: Object) => void,
+  autoHeight: boolean,
+  as: any,
+};
+
+type Props = {
+  outline?: boolean,
+  dark?: boolean,
+  disabled?: boolean,
+  placeholder?: string,
+} & SemanticUIReactTextArea &
+  FieldProps;
+
+export type {Props};
