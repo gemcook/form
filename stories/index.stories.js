@@ -10,6 +10,7 @@ import {combineReducers, createStore} from 'redux';
 import RadioSection from './RadioSection';
 import {Field, reducer as formReducer, reduxForm} from 'redux-form/immutable';
 import {Dropdown, Input, FormProvider} from '.././src';
+import MultipleDropdown from './MultipleDropdown';
 // $ImportStyle
 import '../src/styles/index.scss';
 import prefecture from './prefecture';
@@ -79,9 +80,9 @@ storiesOf('Welcome', module).add('to Gemcook Component', () => (
 ));
 
 storiesOf('Sample', module)
-  .add('InputFormPage', () => (
+  .add('MultipleDropdown', () => (
     <Provider store={store}>
-      <InputFormPage />
+      <MultipleDropdown />
     </Provider>
   ))
   .add('DropdownFormPage', () => (
