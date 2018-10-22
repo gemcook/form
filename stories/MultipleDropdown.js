@@ -7,7 +7,9 @@ import {bindActionCreators} from 'redux';
 import {Dropdown} from '../src';
 import prefecture from './prefecture';
 
-const mapStateToProps = (state: Object) => ({});
+const mapStateToProps = (state: Object) => ({
+  form: state.form.toJS(),
+});
 const mapDispatchToProps = (dispatch: Function) =>
   bindActionCreators({}, dispatch);
 
@@ -22,6 +24,9 @@ const enhance: HOC<*, *> = compose(
   ),
   lifecycle({
     componentDidMount() {},
+    componentDidUpdate() {
+      // console.log(this.props);
+    },
   }),
 );
 
