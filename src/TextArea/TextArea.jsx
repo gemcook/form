@@ -18,7 +18,7 @@ export default function GcTextArea(props: Props): React.Element<'div'> {
         className={classNames({
           fluid: fluid,
           outline: outline,
-          diabled: disabled,
+          diabled: disabled || meta.submitting,
         })}
         name={input.name}
         value={input.value}
