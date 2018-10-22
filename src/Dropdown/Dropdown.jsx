@@ -1,9 +1,10 @@
 /* @flow */
 import * as React from 'react';
-import type {Element} from 'react';
 import classNames from 'classnames';
+import * as R from 'ramda';
 import {Dropdown} from 'semantic-ui-react';
 import enhance from './enhance';
+import type {Element} from 'react';
 import type {Props} from './type.flow';
 
 function GcDropdown(props: Props): Element<*> {
@@ -26,6 +27,7 @@ function GcDropdown(props: Props): Element<*> {
     >
       <Dropdown
         selection={selection}
+        value={R.type(input.value) === 'String' ? input.value : undefined}
         onChange={handleOnChange}
         onFocus={input.onFocus}
         onBlur={input.onBlur}
