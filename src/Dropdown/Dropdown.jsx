@@ -18,6 +18,7 @@ function GcDropdown(props: Props): Element<*> {
       })}
     >
       <Dropdown
+        value={input.value}
         selection={selection}
         onChange={handleOnChange}
         onFocus={input.onFocus}
