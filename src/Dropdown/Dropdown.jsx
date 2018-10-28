@@ -8,7 +8,15 @@ import type {Element} from 'react';
 import type {Props} from './type.flow';
 
 function GcDropdown(props: Props): Element<*> {
-  const {handleOnChange, selection = true, input, meta, outline, dark} = props;
+  const {
+    handleOnChange,
+    multiple,
+    selection = true,
+    input,
+    meta,
+    outline,
+    dark,
+  } = props;
 
   return (
     <div
@@ -18,7 +26,7 @@ function GcDropdown(props: Props): Element<*> {
       })}
     >
       <Dropdown
-        value={input.value}
+        value={multiple ? [...input.value] : input.value}
         selection={selection}
         onChange={handleOnChange}
         onFocus={input.onFocus}
