@@ -13,6 +13,7 @@ function GcDropdown(props: Props): Element<*> {
     multiple,
     selection = true,
     input,
+    inline,
     meta,
     outline,
     dark,
@@ -21,8 +22,9 @@ function GcDropdown(props: Props): Element<*> {
   return (
     <div
       className={classNames('gc__dropdown', {
-        outline: outline,
-        dark: dark,
+        outline,
+        dark,
+        inline,
       })}
     >
       <Dropdown
