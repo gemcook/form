@@ -10,6 +10,10 @@
       left: 0;
     }
 
+    &.active {
+      border-radius: 0;
+    }
+
     .visible.menu.transition {
       min-height: $form__dropdown_menu-height;
 
