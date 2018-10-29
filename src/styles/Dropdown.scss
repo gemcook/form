@@ -11,7 +11,7 @@
     }
 
     &.active {
-      border-radius: 0;
+      border-radius: 3px 3px 0 0;
     }
 
     .visible.menu.transition {
@@ -106,9 +106,9 @@
       &.active.visible {
         background-color: $form__white-color;
         border: {
-          top: solid 3px $form__main-color !important;
-          right: solid 3px $form__main-color !important;
-          left: solid 3px $form__main-color !important;
+          top: solid 3px lighten($form__main-color, 5%) !important;
+          right: solid 3px lighten($form__main-color, 5%) !important;
+          left: solid 3px lighten($form__main-color, 5%) !important;
         }
 
         .item {
