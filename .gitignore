@@ -4,3 +4,4 @@ yarn-error.log
 /lib
 storybook-static
 .DS_Store
+.cache

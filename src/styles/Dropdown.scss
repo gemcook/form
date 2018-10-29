@@ -15,7 +15,7 @@
     }
 
     .visible.menu.transition {
-      min-height: $form__dropdown_menu-height;
+      max-height: $form__dropdown_menu-height;
 
       .item {
         display: flex;

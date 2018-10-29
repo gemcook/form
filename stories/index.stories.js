@@ -1,97 +1,50 @@
 /* @flow */
-import {linkTo} from '@storybook/addon-links';
-import {storiesOf} from '@storybook/react';
-import {Welcome} from '@storybook/react/demo';
-import {connect} from 'react-redux';
 import * as React from 'react';
-import {bindActionCreators} from 'redux';
+import {action} from '@storybook/addon-actions';
+import {linkTo} from '@storybook/addon-links';
+import {withInfo} from '@storybook/addon-info';
+import {storiesOf} from '@storybook/react';
+import {Button, Welcome} from '@storybook/react/demo';
 import {Provider} from 'react-redux';
-import {combineReducers, createStore} from 'redux';
-import RadioSection from './RadioSection';
-import {Field, reducer as formReducer, reduxForm} from 'redux-form/immutable';
-import {Dropdown, Input, FormProvider} from '.././src';
-import MultipleDropdown from './MultipleDropdown';
+import store from './configureStore';
+import {Dropdown} from '../src';
+import prefecture from './DropdownForm/shared/prefecture';
+import DropdownForm from './DropdownForm';
 // $ImportStyle
 import '../src/styles/index.scss';
-import prefecture from './prefecture';
 
-const reducer = combineReducers({form: formReducer});
-const store = createStore(reducer);
-
-const InputForm = () => (
-  <form>
-    <Field
-      fluid
-      dark
-      className="AA"
-      name="prefecture"
-      component={Input}
-      placeholder="都道府県"
-    />
-  </form>
-);
-
-const DropdownForm = () => (
-  <form>
-    <Field
-      fluid
-      dark
-      multiple
-      className="prefecture"
-      name="prefecture"
-      component={Dropdown}
-      placeholder="都道府県"
-      options={prefecture}
-    />
-  </form>
-);
-
-const RadioForm = props => {
-  console.log(props);
-
-  return (
-    <form>
-      <Field
-        type="radio"
-        name="category"
-        component={FormProvider}
-        selectedForm={props.form}
-        formName="radioForm"
-        children={RadioSection}
-      />
-    </form>
-  );
-};
-
-const InputFormPage = reduxForm({form: 'inputForm'})(InputForm);
-const DropdownFormPage = reduxForm({form: 'dropdownForm'})(DropdownForm);
-
-const RadioFormPage = reduxForm({form: 'radioForm'})(
-  connect(
-    state => ({
-      form: state.form.toJS(),
-    }),
-    dispatch => bindActionCreators({}, dispatch),
-  )(RadioForm),
-);
-
-storiesOf('Welcome', module).add('to Gemcook Component', () => (
+storiesOf('Welcome', module).add('to Storybook', () => (
   <Welcome showApp={linkTo('Button')} />
 ));
 
-storiesOf('Sample', module)
+storiesOf('Button', module)
+  .add('with text', () => (
+    <Provider store={store}>
+      <Button onClick={action('clicked')}>Hello Button</Button>
+    </Provider>
+  ))
+  .add('with some emoji', () => (
+    <Provider store={store}>
+      <Button onClick={action('clicked')}>
+        <span role="img" aria-label="so cool">
+          😀 😎 👍 💯
+        </span>
+      </Button>
+    </Provider>
+  ));
+
+storiesOf('Dropdown', module)
+  .addDecorator(withInfo)
   .add('MultipleDropdown', () => (
     <Provider store={store}>
-      <MultipleDropdown />
-    </Provider>
-  ))
-  .add('DropdownFormPage', () => (
-    <Provider store={store}>
-      <DropdownFormPage />
-    </Provider>
-  ))
-  .add('RadioFormPage', () => (
-    <Provider store={store}>
-      <RadioFormPage />
+      <DropdownForm
+        fluid
+        dark
+        multiple
+        name="prefecture"
+        component={Dropdown}
+        placeholder="都道府県"
+        options={prefecture}
+      />
     </Provider>
   ));
