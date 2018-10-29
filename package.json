@@ -1,6 +1,6 @@
 {
   "name": "@gemcook/form",
-  "version": "4.3.3",
+  "version": "4.3.4",
   "main": "lib/index.js",
   "sideEffects": false,
   "repository": "https://github.com/gemcook/pagination.git",
