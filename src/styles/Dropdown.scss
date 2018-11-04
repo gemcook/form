@@ -142,13 +142,16 @@
           min-height: 43px;
         }
       }
-      .text {
-        &.default {
-          font-weight: bold !important;
-          padding: {
-            left: 0;
+
+      &.multiple {
+        .text {
+          &.default {
+            font-weight: bold !important;
+            padding: {
+              left: 0;
+            }
+            color: $form__dark_placeholder-color;
           }
-          color: $form__dark_placeholder-color;
         }
       }
 
