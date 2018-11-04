@@ -142,19 +142,21 @@
           min-height: 43px;
         }
       }
-
       &.multiple {
         .text {
           &.default {
-            font-weight: bold !important;
             padding: {
               left: 0;
             }
-            color: $form__dark_placeholder-color;
           }
         }
       }
-
+      .text {
+        &.default {
+          font-weight: bold !important;
+          color: $form__dark_placeholder-color;
+        }
+      }
       .menu {
         border: {
           right: solid 3px $form__main-color !important;
