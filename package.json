@@ -35,7 +35,7 @@
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.4",
     "babel-plugin-named-asset-import": "0.2.3-next.c662dfb0",
-    "babel-preset-stage-flow": "^7.1.4-201810211801",
+    "babel-preset-stage-flow": "7.1.4-201810211801",
     "css-loader": "^1.0.0",
     "eslint": "^5.8.0",
     "eslint-config-fbjs": "^2.1.0",
