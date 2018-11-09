@@ -1,0 +1,18 @@
+version: 0.2
+phases:
+  install:
+    commands:
+      - yarn install --frozen-lockfile --non-interactive
+  pre_build:
+    commnads:
+      - echo $BRANCH
+      - echo $BUCKET
+      - echo $DISTRIBUTION_ID
+      - echo '$BRANCH'
+  build:
+    commands:
+      - make build
+  post_build:
+    commands:
+      - aws s3 sync dist s3://$BUCKET
+      - aws cloudfront create-invalidation --distribution-id $DISTRIBUTION_ID --paths '/*'

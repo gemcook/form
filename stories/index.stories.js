@@ -1,10 +1,9 @@
 /* @flow */
 import * as React from 'react';
-import {action} from '@storybook/addon-actions';
 import {linkTo} from '@storybook/addon-links';
 import {withInfo} from '@storybook/addon-info';
 import {storiesOf} from '@storybook/react';
-import {Button, Welcome} from '@storybook/react/demo';
+import {Welcome} from '@storybook/react/demo';
 import {Provider} from 'react-redux';
 import store from './configureStore';
 import {Dropdown} from '../src';
@@ -19,22 +18,6 @@ import '../src/styles/index.scss';
 storiesOf('Welcome', module).add('to Storybook', () => (
   <Welcome showApp={linkTo('Button')} />
 ));
-
-storiesOf('Button', module)
-  .add('with text', () => (
-    <Provider store={store}>
-      <Button onClick={action('clicked')}>Hello Button</Button>
-    </Provider>
-  ))
-  .add('with some emoji', () => (
-    <Provider store={store}>
-      <Button onClick={action('clicked')}>
-        <span role="img" aria-label="so cool">
-          😀 😎 👍 💯
-        </span>
-      </Button>
-    </Provider>
-  ));
 
 storiesOf('Dropdown', module)
   .addDecorator(withInfo)
