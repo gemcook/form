@@ -55,7 +55,10 @@ storiesOf('Dropdown', module)
 storiesOf('Input', module).add('CreditCardInput', () => (
   <Provider store={store}>
     <InputForm
+      dark
+      multiple
       component={CreditCardInput}
+      name="creditcardnumber"
       placeholder={'クレジットカード番号'}
     />
   </Provider>
