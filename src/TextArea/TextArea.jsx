@@ -2,59 +2,29 @@
 import * as React from 'react';
 import {TextArea} from 'semantic-ui-react';
 import classNames from 'classnames';
+import type {Props} from './type.flow';
 
-type Props = {
-  className: Object,
-  fluid: boolean,
-  outline: boolean,
-  dark: boolean,
-  autoHeight: boolean,
-  disabled: boolean,
-  style: Object,
-  placeholder: string,
-  rows: number,
-  input: Object,
-  meta: Object,
-};
+export default function GcTextArea(props: Props): React.Element<'div'> {
+  const {dark, fluid, outline, input, meta, disabled, ...rest} = props;
 
-function GcTextArea(props: Props) {
-  const {
-    className,
-    fluid,
-    outline,
-    dark,
-    disabled,
-    autoHeight,
-    style,
-    placeholder,
-    rows,
-    input,
-    meta,
-  } = props;
   return (
     <div
-      className={classNames({
-        gc__textarea: true,
+      className={classNames('gc__textarea', {
         normal: !dark,
         dark: dark,
-      })}>
+      })}
+    >
       <TextArea
         className={classNames({
-          ...className,
           fluid: fluid,
           outline: outline,
-          diabled: disabled,
+          diabled: disabled || meta.submitting,
         })}
-        autoHeight={autoHeight}
-        style={style}
-        placeholder={placeholder}
-        rows={rows}
-        disabled={disabled}
         name={input.name}
         value={input.value}
         onChange={input.onChange}
-        onBlur={input.onBlur}
-        onFocus={input.onFocus}
+        disabled={disabled || meta.submitting}
+        {...rest}
       />
       {meta.touched &&
         ((meta.error && <div className="form__error">{meta.error}</div>) ||
@@ -64,5 +34,3 @@ function GcTextArea(props: Props) {
     </div>
   );
 }
-
-export default GcTextArea;

@@ -1,36 +1,32 @@
 start:
+	NODE_PATH=$(shell which node) \
+	NODE_ENV=development \
+	BABEL_ENV=development \
 	yarn run storybook
 
 clean:
 	rm -rf ./lib/
 
-build-cjs:
+build-umd:
 	NODE_PATH=$(shell which node) \
 	NODE_ENV=production \
 	BABEL_ENV=production \
-	yarn run build:cjs
-
-build-es:
-	NODE_PATH=$(shell which node) \
-	NODE_ENV=production \
-	BABEL_ENV=production \
-	yarn run build:es
+	yarn run build:umd
 
 prepublish:
 	$(MAKE) clean
-
-	$(MAKE) build-cjs
-
-	$(MAKE) build-es
-
-	cp ./flow-typed/index.cjs.js.flow ./lib/cjs/index.cjs.js.flow
-
-	cp ./flow-typed/index.es.js.flow ./lib/es/index.es.js.flow
-
-	cp -r ./src/styles/ ./lib/styles/
+	$(MAKE) build-umd
+	cp -r ./src/styles ./lib/styles
+	cp ./flow-typed/index.js.flow ./lib/index.js.flow
 
 build:
 	yarn run build-storybook
 
 publish:
 	yarn publish --access public
+
+gen-flow:
+	flow gen-flow-files src/index.js --out-dir flow-typed
+
+flow-server:
+	flow server --file-watcher watchman --file-watcher-debug

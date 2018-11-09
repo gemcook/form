@@ -1,73 +1,58 @@
-// external
-const autoprefixer = require('autoprefixer');
 const fs = require('fs');
 const path = require('path');
-const genDefaultConfig = require('@storybook/react/dist/server/config/defaults/webpack.config.js');
+const getStyleLoaders = require('./shared/getStyleLoaders');
 
-// internal
-const appDirectory = fs.realpathSync(process.cwd());
-const resolvePath = relativePath => path.resolve(appDirectory, relativePath);
+const directory = fs.realpathSync(process.cwd());
+const resolveApp = relativePath => path.resolve(directory, relativePath);
 
-// initialize
-const postCSSLoaderOptions = {
-  // 外部CSS読み込みに対応した設定
-  ident: 'postcss',
-  plugins: () => [
-    require('postcss-flexbugs-fixes'),
-    autoprefixer({
-      browsers: ['> 1% in JP'],
-      flexbox: 'no-2009',
-      grid: true,
-    }),
-  ],
-};
+// Export a function. Accept the base config as the only param.
+module.exports = (baseConfig, env, defaultConfig) => {
+  // configType has a value of 'DEVELOPMENT' or 'PRODUCTION'
+  // You can change the configuration based on that.
+  // 'PRODUCTION' is used when building the static version of storybook.
 
-module.exports = (baseConfig, env) => {
-  const config = genDefaultConfig(baseConfig, env);
+  // Make whatever fine-grained changes you need
+  // style files regexes
+  const cssRegex = /\.css$/;
+  const sassRegex = /\.(scss|sass)$/;
 
-  config.module.rules.push({
-    test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
-    loader: require.resolve('url-loader'),
-    options: {
-      limit: 10000,
+  defaultConfig.module.rules.push(
+    {
+      test: /\.(js|jsx|mjs)$/,
+      include: resolveApp('src'),
+      loader: require.resolve('babel-loader'),
+      options: {
+        babelrc: false,
+        configFile: false,
+        presets: [require.resolve('babel-preset-stage-flow')],
+        plugins: [
+          [
+            require.resolve('babel-plugin-named-asset-import'),
+            {
+              loaderMap: {
+                svg: {
+                  ReactComponent: '@svgr/webpack?-prettier,-svgo![path]',
+                },
+              },
+            },
+          ],
+        ],
+        cacheDirectory: true,
+        cacheCompression: false,
+      },
     },
-  });
-
-  config.module.rules.push({
-    test: /\.(js|jsx)$/,
-    include: resolvePath('src'),
-    loader: require.resolve('babel-loader'),
-    options: {
-      cacheDirectory: true,
+    {
+      test: cssRegex,
+      use: getStyleLoaders({
+        importLoaders: 1,
+      }),
     },
-  });
-
-  config.module.rules.push({
-    test: /\.scss$/,
-    loaders: [
-      require.resolve('style-loader'),
-      {
-        loader: require.resolve('css-loader'),
-        options: {
-          importLoaders: 3,
-        },
-      },
-      {
-        loader: require.resolve('resolve-url-loader'),
-      },
-      {
-        loader: require.resolve('sass-loader'),
-        options: {
-          sourceMap: true,
-        },
-      },
-      {
-        loader: require.resolve('postcss-loader'),
-        options: postCSSLoaderOptions,
-      },
-    ],
-  });
+    {
+      test: sassRegex,
+      use: getStyleLoaders({importLoaders: 2}, 'sass-loader'),
+    },
+  );
 
   // Return the altered config
-  return config;
+  return defaultConfig;
 };

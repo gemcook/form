@@ -1,30 +1,16 @@
 /* @flow */
 import * as React from 'react';
+import type {Element} from 'react';
 import {Input, Button, Label, Icon} from 'semantic-ui-react';
 import classNames from 'classnames';
+import type {Props} from './type.flow';
 
-type Props = {
-  type: string,
-  placeholder: string,
-  input: Object,
-  fluid: boolean,
-  style: Object,
-  className: Object,
-  meta: Object,
-  disabled: boolean,
-  searchWords: Array<string>,
-  removeSearchWord: (index: number) => void,
-  outline: boolean,
-  autocomplete: string,
-};
-
-function GcSearch(props: Props) {
+export default function GcSearch(props: Props): Element<*> {
   const {
     input,
     type,
     placeholder,
     style,
-    className,
     disabled,
     searchWords,
     removeSearchWord,
@@ -38,7 +24,6 @@ function GcSearch(props: Props) {
         <div className="b__search-input">
           <Input
             className={classNames({
-              ...className,
               outline,
             })}
             autoComplete={autocomplete || 'off'}
@@ -70,7 +55,8 @@ function GcSearch(props: Props) {
         className={classNames({
           b__result: true,
           gc__hidden: searchWords.length === 0,
-        })}>
+        })}
+      >
         <div className="title">検索対象</div>
         <div className="result">
           {searchWords.map((word, i) => {
@@ -79,7 +65,8 @@ function GcSearch(props: Props) {
                 key={`${word}-${i}`}
                 onClick={() => {
                   removeSearchWord(i);
-                }}>
+                }}
+              >
                 {word}
                 <Icon name="close" />
               </Label>
@@ -90,5 +77,3 @@ function GcSearch(props: Props) {
     </div>
   );
 }
-
-export default GcSearch;

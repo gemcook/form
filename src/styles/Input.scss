@@ -5,13 +5,13 @@
 
   .input {
     input {
+      height: 46px;
+      min-height: 46px;
       border: none;
 
       background: {
         color: $form__white-color;
       }
-
-      height: 40px;
 
       &:focus {
         background: {
@@ -67,24 +67,24 @@
       }
 
       :placeholder-shown {
-        color: $form__dark_placeholder-color;
         font-weight: bold;
+        color: $form__dark_placeholder-color;
       }
 
       ::-webkit-input-placeholder {
-        color: $form__dark_placeholder-color;
         font-weight: bold;
+        color: $form__dark_placeholder-color;
       }
 
       :-moz-placeholder {
-        color: $form__dark_placeholder-color;
         font-weight: bold;
+        color: $form__dark_placeholder-color;
         opacity: 1;
       }
 
       ::-moz-placeholder {
-        color: $form__dark_placeholder-color;
         font-weight: bold;
+        color: $form__dark_placeholder-color;
         opacity: 1;
       }
 

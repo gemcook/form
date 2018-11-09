@@ -1,0 +1,178 @@
+.gc__dropdown {
+  min-height: 46px;
+  .ui.dropdown {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    min-height: 46px;
+    font-size: 16px;
+    padding: {
+      left: 0;
+    }
+
+    &.active {
+      border-radius: 3px 3px 0 0;
+    }
+
+    .visible.menu.transition {
+      max-height: $form__dropdown_menu-height;
+
+      .item {
+        display: flex;
+        align-items: center;
+        height: 100%;
+        min-height: 46px;
+        font-size: 16px;
+        line-height: 1 !important;
+      }
+    }
+
+    &.outline {
+      box-shadow: 0 0 30px #e9ecef;
+    }
+
+    &.disabled {
+      opacity: 0.8;
+    }
+
+    .ui.label {
+      position: relative;
+      z-index: 9;
+      min-width: 88px;
+      padding-right: inherit;
+      text-decoration: none;
+
+      .delete.icon {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 10;
+        display: inline-flex;
+        align-items: center;
+        justify-content: flex-end;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: {
+          right: 12px;
+        }
+      }
+    }
+
+    i.dropdown.icon {
+      display: inline-flex;
+      align-items: center;
+      height: 100%;
+    }
+
+    input {
+      left: 0 !important;
+      height: 100%;
+      border: transparent 1px solid !important;
+      border-radius: 3px;
+
+      .search {
+        height: 100%;
+
+        &:focus {
+          background: {
+            color: $form__white-color;
+          }
+        }
+
+        &:active {
+          background: {
+            color: $form__white-color;
+          }
+        }
+      }
+    }
+
+    div.text {
+      top: 0;
+      display: inline-flex;
+      align-items: center;
+      height: 100%;
+      margin: 0;
+      padding: {
+        left: 0;
+      }
+    }
+  }
+
+  &.inline {
+    .visible.menu.transition {
+      .item {
+        display: inline-flex !important;
+      }
+    }
+  }
+
+  &.dark {
+    a.ui.label {
+      font-weight: normal;
+      color: white;
+      background-color: lighten(rgba($form__main-color, 0.9), 5%) !important;
+      background-color: inherit;
+      box-shadow: none;
+    }
+
+    .ui.dropdown {
+      background: {
+        color: $form__dark-color;
+      }
+      padding: {
+        left: 16px;
+      }
+      height: calc(100% + 3px);
+      min-height: 46px;
+      border: 0;
+      &.active.visible {
+        background-color: $form__white-color;
+        border: {
+          top: solid 3px lighten($form__main-color, 5%) !important;
+          right: solid 3px lighten($form__main-color, 5%) !important;
+          left: solid 3px lighten($form__main-color, 5%) !important;
+        }
+
+        .item {
+          height: 43px;
+          min-height: 43px;
+        }
+      }
+      &.multiple {
+        .text {
+          &.default {
+            padding: {
+              left: 0;
+            }
+          }
+        }
+      }
+      .text {
+        &.default {
+          font-weight: bold !important;
+          color: $form__dark_placeholder-color;
+        }
+      }
+      .menu {
+        border: {
+          right: solid 3px $form__main-color !important;
+          bottom: solid 3px $form__main-color !important;
+          left: solid 3px $form__main-color !important;
+        }
+        z-index: 9;
+        width: calc(100% + 6px);
+        margin: {
+          left: -3px;
+        }
+      }
+    }
+
+    &.disabled {
+      opacity: 0.4;
+    }
+  }
+}
