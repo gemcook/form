@@ -37,7 +37,7 @@ export default function GcSearch(props: Props): Element<*> {
             onChange={input.onChange}
             onBlur={input.onBlur}
             onFocus={input.onFocus}
-            disabled={disabled || input.value === ''}
+            disabled={disabled}
             onKeyPress={event => {
               if (event.key === 'Enter') {
                 event.target.blur();
@@ -46,7 +46,7 @@ export default function GcSearch(props: Props): Element<*> {
           />
         </div>
         <span className="b__button">
-          <Button positive fluid type="submit">
+          <Button positive fluid type="submit" disabled={input.value === ''}>
             検索
           </Button>
         </span>
