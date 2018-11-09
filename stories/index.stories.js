@@ -1,9 +1,7 @@
 /* @flow */
 import * as React from 'react';
-import {linkTo} from '@storybook/addon-links';
 import {withInfo} from '@storybook/addon-info';
 import {storiesOf} from '@storybook/react';
-import {Welcome} from '@storybook/react/demo';
 import {Provider} from 'react-redux';
 import store from './configureStore';
 import {Dropdown} from '../src';
@@ -15,34 +13,44 @@ import {CreditCardInput} from '../src';
 // $ImportStyle
 import '../src/styles/index.scss';
 
-storiesOf('Welcome', module).add('to Storybook', () => (
-  <Welcome showApp={linkTo('Button')} />
+storiesOf('Input', module).add('credit card', () => (
+  <Provider store={store}>
+    <div
+      style={{
+        width: '200px',
+        margin: '20px',
+      }}
+    >
+      <InputForm
+        dark
+        multiple
+        component={CreditCardInput}
+        name="creditcardnumber"
+        placeholder={'クレジットカード番号'}
+      />
+    </div>
+  </Provider>
 ));
 
 storiesOf('Dropdown', module)
   .addDecorator(withInfo)
-  .add('MultipleDropdown', () => (
+  .add('multiple dropdown', () => (
     <Provider store={store}>
-      <DropdownForm
-        fluid
-        dark
-        multiple
-        name="prefecture"
-        component={Dropdown}
-        placeholder="都道府県"
-        options={prefecture}
-      />
+      <div
+        style={{
+          width: '400px',
+          margin: '20px',
+        }}
+      >
+        <DropdownForm
+          fluid
+          dark
+          multiple
+          name="prefecture"
+          component={Dropdown}
+          placeholder="都道府県"
+          options={prefecture}
+        />
+      </div>
     </Provider>
   ));
-
-storiesOf('Input', module).add('CreditCardInput', () => (
-  <Provider store={store}>
-    <InputForm
-      dark
-      multiple
-      component={CreditCardInput}
-      name="creditcardnumber"
-      placeholder={'クレジットカード番号'}
-    />
-  </Provider>
-));
