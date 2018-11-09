@@ -8,6 +8,7 @@ type Props = {
   style: Object,
   disabled: boolean,
   searchWords: Array<string>,
+  addSearchWord: (word: string) => void,
   removeSearchWord: (index: number) => void,
   outline: boolean,
   autocomplete: string,

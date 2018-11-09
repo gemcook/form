@@ -14,6 +14,7 @@ export default function GcSearch(props: Props): Element<*> {
     disabled,
     searchWords,
     removeSearchWord,
+    addSearchWord,
     outline,
     autocomplete,
   } = props;
@@ -46,7 +47,16 @@ export default function GcSearch(props: Props): Element<*> {
           />
         </div>
         <span className="b__button">
-          <Button positive fluid type="submit" disabled={input.value === ''}>
+          <Button
+            positive
+            fluid
+            type="submit"
+            onClick={() => {
+              if (addSearchWord) {
+                addSearchWord(input.value);
+              }
+            }}
+          >
             検索
           </Button>
         </span>
