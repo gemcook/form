@@ -10,6 +10,9 @@ import store from './configureStore';
 import {Dropdown} from '../src';
 import prefecture from './DropdownForm/shared/prefecture';
 import DropdownForm from './DropdownForm';
+import InputForm from './InputForm';
+import {CreditCardInput} from '../src';
+
 // $ImportStyle
 import '../src/styles/index.scss';
 
@@ -48,3 +51,12 @@ storiesOf('Dropdown', module)
       />
     </Provider>
   ));
+
+storiesOf('Input', module).add('CreditCardInput', () => (
+  <Provider store={store}>
+    <InputForm
+      component={CreditCardInput}
+      placeholder={'クレジットカード番号'}
+    />
+  </Provider>
+));
