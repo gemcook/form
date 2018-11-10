@@ -13,8 +13,6 @@ module.exports = (baseConfig, env, defaultConfig) => {
 
   // Make whatever fine-grained changes you need
   // style files regexes
-  const cssRegex = /\.css$/;
-  const sassRegex = /\.(scss|sass)$/;
 
   defaultConfig.module.rules.push(
     {
@@ -42,15 +40,10 @@ module.exports = (baseConfig, env, defaultConfig) => {
       },
     },
     {
-      test: cssRegex,
-      use: getStyleLoaders({
-        importLoaders: 1,
-      }),
-    },
-    {
-      test: sassRegex,
-      use: getStyleLoaders({importLoaders: 2}, 'sass-loader'),
-    },
+      test: /\.scss$/,
+      loaders: ["style-loader", "css-loader", "sass-loader"],
+      include: path.resolve(__dirname, "../")
+    }
   );
 
   // Return the altered config
