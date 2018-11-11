@@ -25,7 +25,7 @@ yarn add @gemcook/form
 #### Import `@gemcook/form/lib/styles/index.scss` to your SCSS.
 
 ```scss
-@import '~@gemcook/form/lib/styles/index';
+@import "~@gemcook/form/lib/styles/index";
 ```
 
 ### Override Styles
@@ -39,6 +39,13 @@ $form__white-color: #fff !default;
 $form__dark-color: #edeced !default;
 $form__dark_placeholder-color: #787878 !default;
 ```
+
+## Storybook
+
+Storybook v4.0.4
+
+build settings by Create React App v2.1.1
+zero config and supporting jsx, css, scss
 
 ## License
 
