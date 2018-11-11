@@ -5,6 +5,3 @@ esproposal.decorators=ignore
 esproposal.export_star_as=enable
 esproposal.optional_chaining=enable
 esproposal.nullish_coalescing=enable
-
-suppress_comment= \\(.\\|\n\\)*\\$FlowFixMe
-suppress_comment= \\(.\\|\n\\)*\\$ImportStyle

@@ -1,14 +1,7 @@
 {
   "extends": [
     "stylelint-prettier/recommended",
+    "prettier-stylelint/config.js",
     "stylelint-config-recess-order"
-  ],
-  "ignoreFiles": [
-    "**/*.svg",
-    "**/*.xml",
-    "**/*.flow",
-    "**/*.js",
-    "**/*.jsx",
-    "**/*.html"
   ]
 }

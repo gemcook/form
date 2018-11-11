@@ -4,14 +4,13 @@ import {withInfo} from '@storybook/addon-info';
 import {storiesOf} from '@storybook/react';
 import {Provider} from 'react-redux';
 import store from './configureStore';
-import {Dropdown} from '../src';
+import {Dropdown, CreditCardInput} from '../../src';
 import prefecture from './DropdownForm/shared/prefecture';
 import DropdownForm from './DropdownForm';
 import InputForm from './InputForm';
-import {CreditCardInput} from '../src';
 
-// $ImportStyle
-import '../src/styles/index.scss';
+// $FlowFixMe
+import '../styles/index.scss';
 
 storiesOf('Input', module).add('credit card', () => (
   <Provider store={store}>
