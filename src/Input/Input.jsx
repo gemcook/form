@@ -1,4 +1,3 @@
-/* @flow */
 import * as React from 'react';
 import type {Element} from 'react';
 import classNames from 'classnames';
@@ -15,6 +14,7 @@ export default function GcInput(props: Props): Element<*> {
     outline,
     dark,
     autocomplete,
+    label,
     ...rest
   } = props;
 
@@ -25,6 +25,7 @@ export default function GcInput(props: Props): Element<*> {
           outline: outline,
           dark: dark,
         })}
+        label={label ? {basic: false, content: label} : false}
         autoComplete={autocomplete || 'off'}
         placeholder={placeholder}
         maxLength={maxLength || 30}
