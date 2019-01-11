@@ -15,6 +15,7 @@ export default function GcInput(props: Props): Element<*> {
     dark,
     autocomplete,
     label,
+    labelPosition,
     ...rest
   } = props;
 
@@ -25,7 +26,7 @@ export default function GcInput(props: Props): Element<*> {
           outline: outline,
           dark: dark,
         })}
-        label={label ? {basic: false, content: label} : false}
+        label={label ? label : false}
         autoComplete={autocomplete || 'off'}
         placeholder={placeholder}
         maxLength={maxLength || 30}
