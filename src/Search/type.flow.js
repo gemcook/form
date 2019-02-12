@@ -12,6 +12,7 @@ type Props = {
   removeSearchWord: (index: number) => void,
   outline: boolean,
   autocomplete: string,
+  reset: () => void,
 } & FieldProps;
 
 export type {Props};
