@@ -41,6 +41,10 @@ export default function GcSearch(props: Props): Element<*> {
             disabled={disabled}
             onKeyPress={event => {
               if (event.key === 'Enter') {
+                if (addSearchWord) {
+                  addSearchWord(input.value);
+                }
+
                 event.target.blur();
               }
             }}
