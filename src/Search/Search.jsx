@@ -50,6 +50,9 @@ export default function GcSearch(props: Props): Element<*> {
           <Button
             positive
             fluid
+            className={classNames({
+              'cant-click': input.value === '',
+            })}
             type="submit"
             onClick={() => {
               if (addSearchWord) {

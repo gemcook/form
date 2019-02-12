@@ -87,4 +87,8 @@
       }
     }
   }
+
+  .cant-click {
+    pointer-events: none !important;
+  }
 }
