@@ -42,7 +42,9 @@ export default function GcSearch(props: Props): Element<*> {
             onKeyPress={event => {
               if (event.key === 'Enter') {
                 if (addSearchWord) {
-                  addSearchWord(input.value);
+                  if (!searchWords.includes(input.value)) {
+                    addSearchWord(input.value);
+                  }
                 }
 
                 event.target.blur();
@@ -57,7 +59,9 @@ export default function GcSearch(props: Props): Element<*> {
             type="submit"
             onClick={() => {
               if (addSearchWord) {
-                addSearchWord(input.value);
+                if (!searchWords.includes(input.value)) {
+                  addSearchWord(input.value);
+                }
               }
             }}
           >
