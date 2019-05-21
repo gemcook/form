@@ -42,6 +42,7 @@ storiesOf('Dropdown', module)
         }}
       >
         <DropdownForm
+          limit={5}
           fluid
           dark
           multiple
