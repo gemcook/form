@@ -7,19 +7,15 @@ const enhance: HOC<Props, *> = compose(
   withHandlers({
     handleOnChange: props => (event: SyntheticEvent<*>, data: Object) => {
       const {input, limit} = props;
-      const dropDownValues = [];
-
+      let count = 10;
       if (limit) {
-        for (let i = 0; i <= limit; i++) {
-          dropDownValues.push(data.value[i]);
-        }
-      } else {
-        const initialLimit = 10;
-        for (let i = 0; i <= initialLimit; i++) {
-          dropDownValues.push(data.value[i]);
-        }
+        count = limit;
       }
-      input.onChange(dropDownValues);
+      if (data.value.length <= count) {
+        return input.onChange(data.value);
+      } else {
+        return data.value;
+      }
     },
   }),
 );
